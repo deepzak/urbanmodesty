@@ -569,6 +569,10 @@ p#coupon-code {
 .single-product .size-chart {
   display: none;
 }
+.page-template-contacts2 .breadcrumbs {
+  margin-bottom: 0;
+  margin-left: 20px;
+}
 
 @media only screen and (min-width: 481px){
   .visible-mobile {
