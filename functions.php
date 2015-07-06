@@ -493,5 +493,4 @@ function um_get_availability( $availability ) {
   return $availability;
 }
 
-
 ?>

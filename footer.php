@@ -9,68 +9,52 @@
   <div class="container">
     <div class="row footer_container">
       <div class="span3 footer_block1 f-contacts">
-        <?php if ( !is_active_sidebar( 'first-footer-widget-area' ) ) : ?>
-          <?php etheme_footer_demo(1); ?>
-        <?php else: ?>
+        <?php if ( is_active_sidebar( 'first-footer-widget-area' ) ) : ?>
           <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
         <?php endif; ?>
       </div>
       
       <div class="span3 footer_block1 footer-big-block">
-        <?php if ( !is_active_sidebar( 'second-footer-widget-area' ) ) : ?>
-          <?php etheme_footer_demo(2); ?>
-        <?php else: ?>
+        <?php if ( is_active_sidebar( 'second-footer-widget-area' ) ) : ?>
           <?php dynamic_sidebar( 'second-footer-widget-area' ); ?>
         <?php endif; ?>
       </div>
       
       
       <div class="span3 footer_block tweets-block">
-        <?php if ( !is_active_sidebar( 'third-footer-widget-area' ) ) : ?>
-          <span class="footer_title"><?php _e( 'Recent Tweets', ETHEME_DOMAIN); ?></span>
-        <?php else: ?>
+        <?php if ( is_active_sidebar( 'third-footer-widget-area' ) ) : ?>
           <?php dynamic_sidebar( 'third-footer-widget-area' ); ?>
         <?php endif; ?>
       </div>
       
       <div class="span3 footer_block tweets-block">
-        <?php if ( !is_active_sidebar( 'fourth-footer-widget-area' ) ) : ?>
-          <?php etheme_footer_demo(3); ?>
-        <?php else: ?>
+        <?php if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) : ?>
           <?php dynamic_sidebar( 'fourth-footer-widget-area' ); ?>
         <?php endif; ?>
       </div>
       
       <div class="footer-menu-wrap">
         <div class="span3 footer_block1">
-          <?php if ( !is_active_sidebar( 'fifth-footer-widget-area' ) ) : ?>
-            <?php etheme_footer_demo(4); ?>
-          <?php else: ?>
+          <?php if ( is_active_sidebar( 'fifth-footer-widget-area' ) ) : ?>
             <?php dynamic_sidebar( 'fifth-footer-widget-area' ); ?>
           <?php endif; ?>
         </div>
         
         <div class="span3 footer_block1">
-          <?php if ( !is_active_sidebar( 'sixth-footer-widget-area' ) ) : ?>
-            <?php etheme_footer_demo(5); ?>
-          <?php else: ?>
+          <?php if ( is_active_sidebar( 'sixth-footer-widget-area' ) ) : ?>
             <?php dynamic_sidebar( 'sixth-footer-widget-area' ); ?>
           <?php endif; ?>
         </div>
         
         
         <div class="span3 footer_block1">
-          <?php if ( !is_active_sidebar( 'seventh-footer-widget-area' ) ) : ?>
-            <?php etheme_footer_demo(6); ?>
-          <?php else: ?>
+          <?php if ( is_active_sidebar( 'seventh-footer-widget-area' ) ) : ?>
             <?php dynamic_sidebar( 'seventh-footer-widget-area' ); ?>
           <?php endif; ?>
         </div>
 
         <div class="span3 footer_block1">
-          <?php if ( !is_active_sidebar( 'eighth-footer-widget-area' ) ) : ?>
-            <?php etheme_footer_demo(7); ?>
-          <?php else: ?>
+          <?php if ( is_active_sidebar( 'eighth-footer-widget-area' ) ) : ?>
             <?php dynamic_sidebar( 'eighth-footer-widget-area' ); ?>
           <?php endif; ?>
         </div>
