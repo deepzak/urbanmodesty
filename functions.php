@@ -493,4 +493,26 @@ function um_get_availability( $availability ) {
   return $availability;
 }
 
+
+
+/**
+Add Size Chart in Shop page
+*/
+add_action( 'woocommerce_single_product_summary', 'um_size_chart_on_shop', 11 );
+function um_size_chart_on_shop(){
+  global $post;
+
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image
+    $first_img = "/images/default.jpg";
+  }
+  echo '<div class="size-chart"><a href="' . $first_img . '" class="fancybox image">Size Chart</a></div>';
+
+}
+
 ?>

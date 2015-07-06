@@ -404,7 +404,8 @@ audio, canvas, video {
 }
 .rows-count4 .product-grid .product-name a,
 .rows-count5 .product-grid .product-name a,
-.woocommerce-shipping-calculator p a {
+.woocommerce-shipping-calculator p a,
+.size-chart a {
   color: #428bca;
   font-weight: bold;
   text-decoration: underline;
@@ -564,6 +565,9 @@ p#coupon-code {
 }
 #pp_full_res {
   background: white;
+}
+.single-product .size-chart {
+  display: none;
 }
 
 @media only screen and (min-width: 481px){
