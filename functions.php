@@ -25,16 +25,22 @@ Include child theme scripts
 */
 add_action( 'wp_enqueue_scripts', 'urban_theme_scripts', 11 );
 function urban_theme_scripts(){
-	wp_dequeue_style( 'style' );
+  wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
   // wp_enqueue_script('hoverIntent', get_template_directory_uri().'/js/hoverIntent.js',array(),false,true);
+  
   // FlipClock script
   // wp_enqueue_style( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.css' );
   // wp_enqueue_script( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.js', array('jquery') );
+
+  wp_enqueue_style( 'owl-carousel', get_stylesheet_directory_uri() . '/owl-carousel/owl.carousel.css' );
+  // wp_enqueue_style( 'owl-theme', get_stylesheet_directory_uri() . '/owl-carousel/owl.theme.css' );
+  wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/owl-carousel/owl.carousel.js', array('jquery') );
+  
   wp_enqueue_script( 'child-script', get_stylesheet_directory_uri() . '/js/child-script.js', array('jquery') );
 }
 

@@ -72,16 +72,16 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 
 				if( is_shop() || is_product_category() ){
 
-					echo '<div class="flexslider product-in-mobile"><ul class="slides">';
+					echo '<div class="owl-carousel product-in-mobile">';
 
-					echo '<li>'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</li>';
+					echo '<div class="item">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
 
 					$attachment_ids = $product->get_gallery_attachment_ids();
 					foreach ($attachment_ids as $attachment_id) {
-						echo '<li><img class="flazy" data-src="'. wp_get_attachment_image_src( $attachment_id, 'product-list' )[0] .'" /></li>';
+						echo '<div class="item"><img class="lazyOwl" data-src="'. wp_get_attachment_image_src( $attachment_id, 'product-list' )[0] .'" /></div>';
 					}
 
-					echo '</ul></div>';
+					echo '</div>';
 
 				} else {
 

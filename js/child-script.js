@@ -35,43 +35,26 @@
     //   autoSlide: false
     // });
 
-$('.product-in-mobile').flexslider({
-	animation: 'slide',
-	slideshow: false,
-	controlNav: false,
-	directionNav: true,
-	slideshowSpeed: 7000,
-	animationSpeed: 600,
-	initDelay: 0,
-	touch: true,
-    start: function(slider) { // Fires when the slider loads the first slide
-    	var slide_count = slider.count - 1;
 
-    	$(slider)
-    	.find('img.flazy:eq(0)')
-    	.each(function() {
-    		var src = $(this).attr('data-src');
-    		$(this).attr('src', src).removeAttr('data-src');
-    	});
-    },
-    before: function(slider) { // Fires asynchronously with each slider animation
-    	var slides     = slider.slides,
-    	index      = slider.animatingTo,
-    	$slide     = $(slides[index]),
-    	$img       = $slide.find('img[data-src]'),
-    	current    = index,
-    	nxt_slide  = current + 1,
-    	prev_slide = current - 1;
 
-    	$slide
-    	.parent()
-    	.find('img.flazy:eq(' + current + '), img.flazy:eq(' + prev_slide + '), img.flazy:eq(' + nxt_slide + ')')
-    	.each(function() {
-    		var src = $(this).attr('data-src');
-    		$(this).attr('src', src).removeAttr('data-src');
-    	});
-    }
-  });
+// Owl Carosol
+$(".owl-carousel").owlCarousel({
+
+  navigation : true, // Show next and prev buttons
+  slideSpeed : 300,
+  pagination : false,
+  singleItem:true,
+  items : 1,
+  lazyLoad : true
+
+  // "singleItem:true" is a shortcut for:
+  // items : 1, 
+  // itemsDesktop : false,
+  // itemsDesktopSmall : false,
+  // itemsTablet: false,
+  // itemsMobile : false
+
+});
 
 
 
@@ -97,19 +80,6 @@ $('.events-nav span').click(function(){
   var lf = $(this).data('left');
   $('.events-wrap').animate({ left: lf }, 1000);
 });
-
-// $('#events').flexslider({
-//   animation: "slide",
-//   reverse: true,
-//   slideshow: false,
-//   controlNav: true,
-//   directionNav: true,
-//   animationLoop: false,
-//   itemWidth: 320,
-//   itemMargin: 0,
-//   maxItems: 2,
-//   minItems: 1
-// });
 
 
 
