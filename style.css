@@ -7,6 +7,9 @@ Description: A custom theme from iDStore theme
 Version: 1.0
 Template: idstore
 */
+select {
+  -moz-appearance: none;
+}
 .fixed-header-area .menu > ul > li > a {
   padding: 20px 7px;
 }
@@ -374,7 +377,6 @@ audio, canvas, video {
 }
 .archive .variations_form select#size,
 .archive .variations_form select#pa_sizes {
-  -moz-appearance: none;
   margin: 0 !important;
   width: 100% !important;
 }

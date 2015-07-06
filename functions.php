@@ -509,9 +509,9 @@ function um_size_chart_on_shop(){
   $first_img = $matches [1] [0];
 
   if(empty($first_img)){ //Defines a default image
-    $first_img = "/images/default.jpg";
+    $first_img = "/wp-content/uploads/2014/07/Size-Chart.png";
   }
-  echo '<div class="size-chart"><a href="' . $first_img . '" class="fancybox image">Size Chart</a></div>';
+  echo '<div class="size-chart"><a href="' . $first_img . '" rel="lightbox">Size Chart</a></div>';
 
 }
 
