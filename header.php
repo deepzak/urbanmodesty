@@ -9,7 +9,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <?php if($etheme_responsive): ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 <?php endif; ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php
