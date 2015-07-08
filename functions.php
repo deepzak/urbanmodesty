@@ -163,6 +163,16 @@ function woocommerce_button_proceed_to_checkout() {
 
 
 /**
+Disable Adminbar for other users except admin
+*/
+if ( !current_user_can( 'manage_options' ) && !is_admin() ) {
+  show_admin_bar( false );
+}
+
+
+
+
+/**
 Add Body Class in to detect browser
 */
 add_filter('body_class','browser_body_class');
