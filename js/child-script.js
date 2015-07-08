@@ -38,14 +38,14 @@
 
 
 // Owl Carosol
-$(".owl-carousel").owlCarousel({
+// $(".owl-carousel").owlCarousel({
 
-  navigation : true, // Show next and prev buttons
-  slideSpeed : 300,
-  pagination : false,
-  singleItem:true,
-  items : 1,
-  lazyLoad : true
+//   navigation : true, // Show next and prev buttons
+//   slideSpeed : 300,
+//   pagination : false,
+//   singleItem:true,
+//   items : 1,
+//   lazyLoad : true
 
   // "singleItem:true" is a shortcut for:
   // items : 1, 
@@ -54,7 +54,7 @@ $(".owl-carousel").owlCarousel({
   // itemsTablet: false,
   // itemsMobile : false
 
-});
+// });
 
 
 

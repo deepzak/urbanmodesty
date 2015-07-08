@@ -429,12 +429,6 @@ audio, canvas, video {
   z-index: 9;
   height: 40px;
 }
-/*.flex-direction-nav {
-  opacity: 0;
-}
-.flexslider:hover .flex-direction-nav {
-  opacity: 1;
-}*/
 .product-in-mobile .owl-buttons > div {
   height: 60px;
   width: 40px;
@@ -456,6 +450,10 @@ audio, canvas, video {
 }
 .product-in-mobile.flexslider .slides img {
   background: #eee url("../idstore/images/loading5.gif") no-repeat scroll 50% 50%;
+}
+.product-in-mobile .owl-item.loading {
+  background: rgba(0, 0, 0, 0) url("owl-carousel/AjaxLoader.gif") no-repeat scroll center center;
+  min-height: 150px;
 }
 
 /* Offer Banner */

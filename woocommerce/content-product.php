@@ -72,16 +72,18 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 
 				if( is_shop() || is_product_category() ){
 
-					echo '<div class="owl-carousel product-in-mobile">';
+					echo '<div class="owl-carousel product-in-mobile">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
 
-					echo '<div class="item">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
+					// echo '<div class="owl-carousel product-in-mobile">';
 
-					$attachment_ids = $product->get_gallery_attachment_ids();
-					foreach ($attachment_ids as $attachment_id) {
-						echo '<div class="item"><img class="lazyOwl" data-src="'. wp_get_attachment_image_src( $attachment_id, 'product-list' )[0] .'" /></div>';
-					}
+					// echo '<div class="item">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
 
-					echo '</div>';
+					// $attachment_ids = $product->get_gallery_attachment_ids();
+					// foreach ($attachment_ids as $attachment_id) {
+					// 	echo '<div class="item"><img class="lazyOwl" data-src="'. wp_get_attachment_image_src( $attachment_id, 'product-list' )[0] .'" /></div>';
+					// }
+
+					// echo '</div>';
 
 				} else {
 
