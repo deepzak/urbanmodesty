@@ -23,7 +23,7 @@ get_header('shop'); ?>
           $product_sidebar = false;
         }
       ?>  <a class="back-to" href="javascript: history.go(-1)"><span>&lsaquo;</span> <?php _e('Return to Previous Page', ETHEME_DOMAIN); ?></a>    
-     <p class="offer-banner">Free US Shipping with No Minimum Limited Time, Guaranteed Before Eid US Delivery &amp; EZ Returns</p>
+     <p class="offer-banner">Free US Shipping with No Minimum Limited Time, Last Weekend for Guaranteed US Delivery Before Eid &amp; EZ Returns</p>
     </div>
   </div>
 </div>
