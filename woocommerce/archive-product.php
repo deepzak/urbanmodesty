@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
       <?php do_action('woocommerce_before_main_content'); extract(etheme_get_shop_sidebar()); ?>
       <a class="back-to" href="javascript: history.go(-1)"><span>&lsaquo;</span> <?php _e('Return to Previous Page', ETHEME_DOMAIN); ?></a>
 
-      <p class="offer-banner">Free US Shipping with No Minimum Limited Time, Last Weekend for Guaranteed US Delivery Before Eid &amp; EZ Returns</p>
+      <p class="offer-banner">FREE US SHIPPING WITH NO MINIMUM LIMITED TIME &amp; EZ RETURNS</p>
 
       <!-- <p id="coupon-code"><?php
       /*
