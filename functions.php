@@ -535,4 +535,8 @@ function um_size_chart_on_shop(){
 
 }
 
+
+// Remove "itthinx updater" plugin installation notice
+remove_action('admin_notices', 'itthinx_updates_install', 10);
+
 ?>
