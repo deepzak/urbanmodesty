@@ -499,14 +499,8 @@ add_filter( 'woocommerce_get_availability', 'um_get_availability', 1 );
 function um_get_availability( $availability ) {
   global $post;
 
-  if( ( $post->ID == 322 ) || ( $post->ID == 9345 ) ){
-    $delivery = 'early August';
-  } else {
-    $delivery = 'Mid-July';
-  }
-
   if( $availability['availability'] == 'Available on backorder' ){
-    $availability['availability'] = 'Pre-Order sold out sizes for '. $delivery .' delivery';
+    $availability['availability'] = 'Size sold out.  Pre-order now for August delivery';
     $availability['class'] = 'available-on-backorder show';
   }
   
