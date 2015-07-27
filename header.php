@@ -76,24 +76,80 @@
 		<div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">
 			<div class="container">
 				<div class="row header-variant2">
-		    		<div class="span4 header-phone"><?php etheme_option('header_phone') ?></div>
-		            <div class="span8">
-		            	<?php if(etheme_get_option('search_form')): ?>
-			                <div class="search_form">
-			                    <?php get_search_form(); ?>
-			                </div>
-			            <?php endif; ?>
-			            <?php if(class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')): ?>
-			                <div id="top-cart" class="shopping-cart-wrapper widget_shopping_cart">
-			                    <?php $cart_widget = new Etheme_WooCommerce_Widget_Cart(); $cart_widget->widget(); ?>
-			                </div>
-			            <?php endif ;?> 
-			    		<?php if(etheme_get_option('top_links')): ?>
-			    			<?php  get_template_part( 'et-links' ); ?>
-			            <?php endif; ?>
-	                </div>
-		    		
-				</div>
+          <div class="span4 header-phone">
+            <p>
+              <a href="/localization" id="currency" title="click to change your currency">
+                <?php
+
+                global $WOOCS;
+                $currency = $WOOCS->current_currency;
+                $location = WC_Geolocation::geolocate_ip();
+
+                switch ( $currency ) {
+                  case 'USD':
+                    $value = array('&#36;', $location['country']);
+                    break;
+
+                  case 'AUD':
+                    $value = array('A&#36;', $location['country']);
+                    break;
+
+                  case 'CAD':
+                    $value = array('C&#36;', $location['country']);
+                    break;
+
+                  case 'DKK':
+                    $value = array('kr', $location['country']);
+                    break;
+
+                  case 'EUR':
+                    $value = array('&euro;', $location['country']);
+                    break;
+
+                  case 'GBP':
+                    $value = array('&pound;', $location['country']);
+                    break;
+
+                  case 'MAX':
+                    $value = array('M&#36;', $location['country']);
+                    break;
+
+                  case 'SEK':
+                    $value = array('kr', $location['country']);
+                    break;
+
+                  case 'SGD':
+                    $value = array('S&#36;', $location['country']);
+                    break;
+
+                  default:
+                    $value = array('&#36;', 'US');
+                    break;
+                }
+
+                echo $value[0] . ' <i id="flag" class="flag sprite' . $value[1] . '"></i>';
+
+                ?>
+              </a>
+            </p>
+          </div>
+          <div class="span8">
+           <?php if(etheme_get_option('search_form')): ?>
+             <div class="search_form">
+               <?php get_search_form(); ?>
+             </div>
+           <?php endif; ?>
+           <?php if(class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')): ?>
+             <div id="top-cart" class="shopping-cart-wrapper widget_shopping_cart">
+               <?php $cart_widget = new Etheme_WooCommerce_Widget_Cart(); $cart_widget->widget(); ?>
+             </div>
+           <?php endif ;?> 
+           <?php if(etheme_get_option('top_links')): ?>
+            <?php  get_template_part( 'et-links' ); ?>
+          <?php endif; ?>
+        </div>
+
+      </div>
 			</div>
 		</div>
 	<?php endif; ?>
