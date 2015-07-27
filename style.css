@@ -586,7 +586,7 @@ p#coupon-code {
   margin: 10px 0;
   width: 25%;
 }
-i.flag, i#flag {
+.flag, #flag {
   background-image: url('images/source.png');
   background-repeat: no-repeat;
   width: 20px;
@@ -594,6 +594,7 @@ i.flag, i#flag {
   vertical-align: middle;
   display: inline-block;
 }
+.flag { background-position: -140px -348px; }
 .spriteundefined { background-position: -140px -348px; }
 
 .spriteAU { background-position: -523px -240px; }
