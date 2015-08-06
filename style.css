@@ -7,6 +7,17 @@ Description: A custom theme from iDStore theme
 Version: 1.0
 Template: idstore
 */
+
+
+/****************
+NEED to REMOVE after WORK DONE
+******************/
+.postid-322 .summary .umnotice {
+  display: none;
+}
+
+
+
 select {
   -moz-appearance: none;
 }
@@ -574,6 +585,9 @@ p#coupon-code {
   margin-bottom: 0;
   margin-left: 20px;
 }
+.summary a.umnotice {
+  font-size: 16px;
+}
 
 /* Localization */
 .countries.unstyled {
@@ -585,6 +599,9 @@ p#coupon-code {
   list-style: none;
   margin: 10px 0;
   width: 25%;
+}
+#pa_pocket {
+  width: 100%;
 }
 .flag, #flag {
   background-image: url('images/source.png');
@@ -621,12 +638,19 @@ p#coupon-code {
 .spriteAE { background-position: -113px -376px; }
 .spriteGB { background-position: -73px -376px; }
 .spriteUS { background-position: -140px -348px; }
+.currency-wrap {
+  float: right;
+  margin: 0 0 0 20px;
+}
 #currency {
   color: white !important;
   font-size: 18px;
   vertical-align: bottom;
   background-color: #616161;
   padding: 2px 5px 3px;
+}
+.rev_slider .button.active {
+  color: white;
 }
 
 

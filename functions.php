@@ -387,7 +387,7 @@ function um_sale_notice( $content ){
   
   foreach ($cats as $cat) {
     if( $cat->slug == 'sale' ){
-      $text = '<p><a href="/customer-care/" class="umnotice">Final Sale</a></p>';
+      $text = '<p><a href="/customer-care/" class="umnotice">Final Sale - No Returns or Exchanges</a></p>';
     }
   }
 

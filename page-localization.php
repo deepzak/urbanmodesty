@@ -26,7 +26,7 @@ get_header(); ?>
       <h1 class="page-title"><?php echo $title; ?></h1>
       
       <ul class="countries unstyled">
-        <li>
+        <!-- <li>
           <i class="flag spriteAU"></i>
           <a href="?currency=AUD" data-country="AU">
             Australia (A$)
@@ -38,7 +38,7 @@ get_header(); ?>
           <a href="?currency=USD" data-country="BH">
             Bahrain (BD)
           </a>
-        </li>
+        </li> -->
 
         <li>
           <i class="flag spriteCA"></i>
@@ -47,7 +47,7 @@ get_header(); ?>
           </a>
         </li>
 
-        <li>
+        <!-- <li>
           <i class="flag spriteDK"></i>
           <a href="?currency=DKK" data-country="DK">
             Denmark (kr)
@@ -122,7 +122,7 @@ get_header(); ?>
           <a href="?currency=MXN" data-country="MX">
             Mexico (M$)
           </a>
-        </li>
+        </li> -->
 
         <li>
           <i class="flag spriteNL"></i>
@@ -131,7 +131,7 @@ get_header(); ?>
           </a>
         </li>
 
-        <li>
+        <!-- <li>
           <i class="flag spriteQA"></i>
           <a href="?currency=USD" data-country="QA">
             Qatar (ر.ق)
@@ -178,7 +178,7 @@ get_header(); ?>
           <a href="?currency=USD" data-country="AE">
             United Arab Emirates (AED)
           </a>
-        </li>
+        </li> -->
 
         <li>
           <i class="flag spriteGB"></i>
@@ -209,7 +209,7 @@ get_header(); ?>
   jQuery(document).ready(function ($) {
     $('.countries a').click(function(){
       var cun = $(this).data('country');
-      $.cookie('countryinit', cun, { expires: 7, path: '/' });
+      $.cookie('countryinit', cun, { expires: 1, path: '/' });
     });
   });
 </script>
