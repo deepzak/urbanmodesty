@@ -25,7 +25,11 @@ select {
   padding: 20px 7px;
 }
 .mega-menu > ul > li > ul > li {
-width: 180px;
+  margin-right: 75px;
+  width: auto;
+}
+.mega-menu > ul > li > ul > li:last-child {
+  margin-right: 0;
 }
 /* 06-01-15 */
 .woocommerce-cart-notice {
@@ -651,6 +655,8 @@ p#coupon-code {
 }
 .rev_slider .button.active {
   color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 
@@ -795,5 +801,25 @@ p#coupon-code {
   .countries.unstyled li {
     width: 100%;
     text-align: center;
+  }
+  .header-variant2 #top-cart {
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+  .currency-wrap {
+    float: right;
+    margin: 5px 0 0 20px;
+    width: 60px;
+  }
+  .header-top-variant4 .header-variant2 .search_form {
+    float: right;
+    width: 57px !important;
+    display: block;
+    height: 33px;
+  }
+  #searchform {
+    margin: 0;
+    right: 10px;
   }
 } /* (max-width: 480px) */

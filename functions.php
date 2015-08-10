@@ -533,19 +533,4 @@ function um_size_chart_on_shop(){
 // Remove "itthinx updater" plugin installation notice
 remove_action('admin_notices', 'itthinx_updates_install', 10);
 
-
-
-// Set Local initial on cookies
-add_action( 'wp_footer', 'um_set_local_init' );
-function um_set_local_init(){
-  echo "\n" . '<script type="text/javascript">
-  jQuery(document).ready(function ($) {
-    var c = $.cookie("countryinit");
-    if( c != "undefined" ){
-      $("#flag").removeClass().addClass( "sprite" + c );
-    }
-  });
-  </script>' . "\n";
-}
-
 ?>

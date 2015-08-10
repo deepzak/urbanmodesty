@@ -62,14 +62,14 @@
 	<div class="wrapper">
 	
     <?php if(etheme_get_option('loader')): ?>
-    <div id="loader">
+      <div id="loader">
         <div id="loader-status">
-            <p class="center-text">
-                <em><?php _e('Loading the content...', ETHEME_DOMAIN); ?></em>
-                <em><?php _e('Loading depends on your connection speed!', ETHEME_DOMAIN); ?></em>
-            </p>
+          <p class="center-text">
+            <em><?php _e('Loading the content...', ETHEME_DOMAIN); ?></em>
+            <em><?php _e('Loading depends on your connection speed!', ETHEME_DOMAIN); ?></em>
+          </p>
         </div>
-    </div>
+      </div>
     <?php endif; ?>
     
 	<?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
@@ -86,43 +86,22 @@
 
               global $WOOCS;
               $currency = $WOOCS->current_currency;
-              $location = WC_Geolocation::geolocate_ip();
-
+              
               switch ( $currency ) {
                 case 'USD':
-                $value = array('&#36;', $location['country']);
-                break;
-
-                case 'AUD':
-                $value = array('A&#36;', $location['country']);
+                $value = array('&#36;', 'US');
                 break;
 
                 case 'CAD':
-                $value = array('C&#36;', $location['country']);
-                break;
-
-                case 'DKK':
-                $value = array('kr', $location['country']);
+                $value = array('C&#36;', 'CA');
                 break;
 
                 case 'EUR':
-                $value = array('&euro;', $location['country']);
+                $value = array('&euro;', 'NL');
                 break;
 
                 case 'GBP':
-                $value = array('&pound;', $location['country']);
-                break;
-
-                case 'MAX':
-                $value = array('M&#36;', $location['country']);
-                break;
-
-                case 'SEK':
-                $value = array('kr', $location['country']);
-                break;
-
-                case 'SGD':
-                $value = array('S&#36;', $location['country']);
+                $value = array('&pound;', 'UK');
                 break;
 
                 default:
@@ -150,72 +129,72 @@
 
     
    <?php if(etheme_get_option('fixed_nav')): ?> 
-	    <div class="fixed-header-area visible-desktop">
-		    <div class="fixed-header container">
-			    <div class="row">
-		            <div class="span3 logo">
-	                    <?php etheme_logo(); ?>
-		            </div>
-		            <div id="main-nav" class="span9">
-		                <?php etheme_header_wp_navigation(); ?>
-		            </div>
-			        <div class="clear"></div>
-			    </div>
-		    </div>
-	    </div>
+    <div class="fixed-header-area visible-desktop">
+      <div class="fixed-header container">
+        <div class="row">
+          <div class="span3 logo">
+            <?php etheme_logo(); ?>
+          </div>
+          <div id="main-nav" class="span9">
+            <?php etheme_header_wp_navigation(); ?>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
     <?php endif; ?>
     
     <div class="header-bg header-type-<?php echo $header_type; ?>">
     <div class="container header-area"> 
 	    
-        <header class="row header ">
-            <div class="span5 logo">
-                <?php etheme_logo(); ?>
-            </div>
-	           
-	        <?php if($header_type == 'default'): ?>
-	            <div class="span3 visible-desktop">
-	                <?php if(etheme_get_option('header_phone') && etheme_get_option('header_phone') != ''): ?>
-	                    <span class="search_text">
-	                        <?php etheme_option('header_phone') ?>
-	                    </span>
-	                <?php endif; ?>
-		            <?php if(etheme_get_option('search_form')): ?>
-		                <div class="search_form">
-		                    <?php get_search_form(); ?>
-		                </div>
-	                <?php endif; ?>
-	            </div>
-	            
-	            <div class="span3 shopping_cart_wrap visible-desktop">
-	
-	                <?php if(class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')): ?>
-	                    <div id="top-cart" class="shopping-cart-wrapper widget_shopping_cart">
-	                        <?php $cart_widget = new Etheme_WooCommerce_Widget_Cart(); $cart_widget->widget(); ?> 
-	                    </div>
-	                <?php endif ;?> 
-	                <div class="clear"></div>
-	                <?php if(etheme_get_option('top_links')): ?>
-	                    <?php  get_template_part( 'et-links' ); ?>
-	                <?php endif; ?>
-	            </div>
-	    	<?php endif; ?>
-	    	
-		    <?php if($header_type == 'variant2' || $header_type == 'variant5' || $header_type == 'variant6'): ?>
-	            <div id="main-nav">
-	                <?php etheme_header_wp_navigation(); ?>
-	            </div>
-		    <?php endif; ?>
-        </header>
-        <p class="shop-now visible-mobile"><a class="button small active" href="/shop/">Shop Now</a></p>
+      <header class="row header ">
+        <div class="span5 logo">
+          <?php etheme_logo(); ?>
+        </div>
+
+        <?php if($header_type == 'default'): ?>
+          <div class="span3 visible-desktop">
+            <?php if(etheme_get_option('header_phone') && etheme_get_option('header_phone') != ''): ?>
+              <span class="search_text">
+                <?php etheme_option('header_phone') ?>
+              </span>
+            <?php endif; ?>
+            <?php if(etheme_get_option('search_form')): ?>
+              <div class="search_form">
+                <?php get_search_form(); ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
+          <div class="span3 shopping_cart_wrap visible-desktop">
+
+            <?php if(class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')): ?>
+              <div id="top-cart" class="shopping-cart-wrapper widget_shopping_cart">
+                <?php $cart_widget = new Etheme_WooCommerce_Widget_Cart(); $cart_widget->widget(); ?> 
+              </div>
+            <?php endif ;?> 
+            <div class="clear"></div>
+            <?php if(etheme_get_option('top_links')): ?>
+              <?php  get_template_part( 'et-links' ); ?>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+
+        <?php if($header_type == 'variant2' || $header_type == 'variant5' || $header_type == 'variant6'): ?>
+          <div id="main-nav">
+            <?php etheme_header_wp_navigation(); ?>
+          </div>
+        <?php endif; ?>
+      </header>
+      <p class="shop-now visible-mobile"><a class="button small active" href="/shop/">Shop Now</a></p>
 	    <?php if($header_type == 'default' || $header_type == 'variant3') etheme_header_menu(); ?>
     </div>
     <?php if($header_type == 'variant4') etheme_header_menu(); ?>
     
     <?php 
-        get_template_part( 'et-styles' ); 
-        if($etheme_responsive){
-            get_template_part('large-resolution');
-        }
+    get_template_part( 'et-styles' ); 
+    if($etheme_responsive){
+      get_template_part('large-resolution');
+    }
     ?>
 </div>
