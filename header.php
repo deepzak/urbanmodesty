@@ -82,36 +82,6 @@
              <?php get_search_form(); ?>
            </div>
           <?php endif; ?>
-          <p class="currency-wrap"><a href="/localization" id="currency" title="click to change your currency"><?php
-
-              global $WOOCS;
-              $currency = $WOOCS->current_currency;
-              
-              switch ( $currency ) {
-                case 'USD':
-                $value = array('&#36;', 'US');
-                break;
-
-                case 'CAD':
-                $value = array('C&#36;', 'CA');
-                break;
-
-                case 'EUR':
-                $value = array('&euro;', 'NL');
-                break;
-
-                case 'GBP':
-                $value = array('&pound;', 'UK');
-                break;
-
-                default:
-                $value = array('&#36;', 'US');
-                break;
-              }
-
-              echo $value[0] . ' <i id="flag" class="flag sprite' . $value[1] . '"></i>';
-
-              ?></a></p>
           <?php if(class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')): ?>
            <div id="top-cart" class="shopping-cart-wrapper widget_shopping_cart">
              <?php $cart_widget = new Etheme_WooCommerce_Widget_Cart(); $cart_widget->widget(); ?>
