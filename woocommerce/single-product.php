@@ -23,7 +23,7 @@ get_header('shop'); ?>
           $product_sidebar = false;
         }
       ?>  <a class="back-to" href="javascript: history.go(-1)"><span>&lsaquo;</span> <?php _e('Return to Previous Page', ETHEME_DOMAIN); ?></a>    
-     <p class="offer-banner">FREE 2-DAY PRIORITY MAIL U.S. SHIPPING - NO MINIMUM - LIMITED TIME<br>EZ RETURNS &amp; GENEROUS 60 DAYS EXCHANGE POLICY</p>
+     <!-- <p class="offer-banner">FREE SURPRISE GIFT SKIRT WITH $99 PURCHASE or DRESS WITH $199 PURCHASE</p> -->
     </div>
   </div>
 </div>

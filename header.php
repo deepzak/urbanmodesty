@@ -72,6 +72,8 @@
       </div>
     <?php endif; ?>
     
+    <p class="above-header-notice"><span>FREE 2-DAY PRIORITY MAIL US SHIPPING</span> over $49 &amp; DISCOUNTED GLOBAL SHIPPING<br>EZ RETURNS &amp; GENEROUS 60 DAY EXCHANGES</p>
+
 	<?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
 		<div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">
 			<div class="container">
@@ -153,6 +155,7 @@
         <?php if($header_type == 'variant2' || $header_type == 'variant5' || $header_type == 'variant6'): ?>
           <div id="main-nav">
             <?php etheme_header_wp_navigation(); ?>
+            <p class="header-notice">FREE SURPRISE SKIRT with $99 purchase or DRESS with $199 purchase</p>
           </div>
         <?php endif; ?>
       </header>

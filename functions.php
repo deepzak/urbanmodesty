@@ -7,7 +7,7 @@
 
 add_action( 'after_setup_theme', 'remove_project_custom_init' );
 function remove_project_custom_init() {
-  remove_action('init', 'etheme_portfolio_init');
+  // remove_action('init', 'etheme_portfolio_init');
   remove_action('save_post', 'etheme_portfolio_post_meta_box_save', 1, 2);
   remove_action("admin_init", "etheme_add_portfolio_meta_boxes");
 
@@ -474,18 +474,6 @@ function um_inactivity_slide_servey(){
   })(jQuery);
   </script><?php
 }
-*/
-
-
-
-/**
-Change the generated SKU to use the product's post ID instead of the slug
-
-function sv_change_sku_value( $sku, $product ) {
-  $sku = $product->get_post_data()->ID;
-  return $sku;
-}
-add_filter( 'wc_sku_generator_sku', 'sv_change_sku_value', 10, 2 );
 */
 
 
