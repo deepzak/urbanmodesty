@@ -71,8 +71,20 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 			if ( has_post_thumbnail() ){
 
 				if( is_shop() || is_product_category() ){
+					
+					$video = get_post_meta( $post->ID, 'woo_video_product_tab', true );
+					if( !empty($video) ){
+						echo '<div id="video-'. $post->ID .'" class="hide">'. $video[0]['video'] .'</div>';
+					}
+					
+					echo '<div class="owl-carousel product-in-mobile">'. get_the_post_thumbnail( $post->ID, 'product-list' );
 
-					echo '<div class="owl-carousel product-in-mobile">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
+					if( !empty($video) ){
+						echo '<a href="#video-'. $post->ID .'" rel="lightbox" class="play-video"><i class="moon-play-2"></i></a>';
+					}
+
+					echo '</div>';
+					
 
 					// echo '<div class="owl-carousel product-in-mobile">';
 

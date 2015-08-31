@@ -246,7 +246,6 @@ p.umnotice, a.umnotice {
 .text-right {
   text-align: right;
 }
-.breadcrumbs { padding: 0; }
 .after_footer {
   margin: 5px 0;
   padding: 0;
@@ -456,12 +455,27 @@ audio, canvas, video {
   height: 426px;
   border-radius: 0;
 }
+.product-in-mobile { position: relative; }
 .product-in-mobile .owl-buttons {
   position: absolute;
   top: 50%;
   width: 100%;
   z-index: 9;
   height: 40px;
+}
+.product-in-mobile .play-video {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 1px 2px 0 3px;
+  background: #545353;
+  cursor: pointer;
+}
+.play-video i {
+  color: #F0F0F0;
+  font-size: 20px;
+  vertical-align: bottom;
+  /*padding: 0px 4px 0px 3px;*/
 }
 .product-in-mobile .owl-buttons > div {
   height: 60px;
@@ -605,6 +619,7 @@ p#coupon-code {
   margin-bottom: 0;
   margin-left: 20px;
 }
+.archive.woocommerce .breadcrumbs { padding: 0; }
 .summary a.umnotice {
   font-size: 16px;
 }
@@ -677,7 +692,49 @@ p#coupon-code {
 .footer_block.tweets-block .textwidget {
   padding-bottom: 15px;
 }
+#shipping_method_0 {
+  border: none;
+  text-align: right;
+}
+/** Lookbook */
+.page-template-lookbook h1.page-title {
+  border: 0 none;
+  float: left;
+  padding: 0;
+}
+.lookbook-cat-list {
+  border-bottom: 1px solid #f4f4f4;
+  padding: 0 0 15px;
+  text-align: right;
+}
+.lookbook-cat-list li {
+  background: #cccccc;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 0 10px;
+}
+.lookbook-cat-list li:last-child {
+  margin-right: 0;
+}
+.lookbook-cat-list li:hover {
+  background: #fa8072;
+}
+.lookbook-cat-list li.active {
+  background: #fa8072;
+}
+.lookbook-cat-list a {
+  color: #ffffff;
+  display: block;
+  padding: 6px 10px;
+}
+.lookbook-cat-list a:hover {
+  color: #fff;
+}
 
+
+/*****************************************
+*********  START - MEDIA QUERY  **********
+*****************************************/
 @media only screen and (max-width: 979px){
   .header-type-variant5 .header {
     display: block;
@@ -861,3 +918,7 @@ p#coupon-code {
     display: none;
   }
 } /* (max-width: 480px) */
+
+/*****************************************
+**********  END - MEDIA QUERY  ***********
+*****************************************/

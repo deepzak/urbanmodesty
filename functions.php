@@ -21,6 +21,39 @@ function remove_project_custom_init() {
 
 
 /**
+Add LookBook CPT
+*/
+function um_lookbook_cpt() {
+  register_post_type( 'lookbook', array(
+    'public'              => false,
+    'show_ui'             => true,
+    'show_in_nav_menus'   => false,
+    'label'               => 'Lookbook',
+    'supports'            => array( 'title',  ),
+    'menu_icon'           => 'dashicons-video-alt3'
+  ) );
+
+
+  register_taxonomy(
+    'lookbook_type',
+    'lookbook',
+    array(
+      'label' => __( 'Category' ),
+      'rewrite' => array( 'slug' => 'lookbook_type' ),
+      'hierarchical' => true,
+    )
+  );
+}
+add_action( 'init', 'um_lookbook_cpt' );
+
+
+
+// Use ACF without GUI
+// define( 'ACF_LITE', true );
+
+
+
+/**
 Include child theme scripts
 */
 add_action( 'wp_enqueue_scripts', 'urban_theme_scripts', 11 );
@@ -500,25 +533,41 @@ function um_get_availability( $availability ) {
 /**
 Add Size Chart in Shop page
 */
-add_action( 'woocommerce_single_product_summary', 'um_size_chart_on_shop', 11 );
-function um_size_chart_on_shop(){
-  global $post;
+if ( !is_admin() ) {
+  add_action( 'woocommerce_single_product_summary', 'um_size_chart_on_shop', 11 );
+  function um_size_chart_on_shop(){
+    global $post;
 
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches [1] [0];
+    $first_img = '';
+    ob_start();
+    ob_end_clean();
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+    $first_img = $matches [1] [0];
 
-  if(empty($first_img)){ //Defines a default image
-    $first_img = "/wp-content/uploads/2014/07/Size-Chart.png";
+    if(empty($first_img)){ //Defines a default image
+      $first_img = "/wp-content/uploads/2014/07/Size-Chart.png";
+    }
+    echo '<div class="size-chart"><a href="' . $first_img . '" rel="lightbox">Size Chart</a></div>';
+
   }
-  echo '<div class="size-chart"><a href="' . $first_img . '" rel="lightbox">Size Chart</a></div>';
-
 }
 
 
 // Remove "itthinx updater" plugin installation notice
-remove_action('admin_notices', 'itthinx_updates_install', 10);
+if ( is_admin() ) {
+  remove_action('admin_notices', 'itthinx_updates_install', 10);
+}
 
-?>
+
+/**
+Remove Rev Slider Metabox
+ */
+if ( is_admin() ) {
+  function remove_revolution_slider_meta_boxes() {
+    remove_meta_box( 'mymetabox_revslider_0', 'page', 'normal' );
+    remove_meta_box( 'mymetabox_revslider_0', 'post', 'normal' );
+    remove_meta_box( 'mymetabox_revslider_0', 'lookbook', 'normal' );
+    remove_meta_box( 'mymetabox_revslider_0', 'acf', 'normal' );
+  }
+  add_action( 'do_meta_boxes', 'remove_revolution_slider_meta_boxes' );
+}
