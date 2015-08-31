@@ -465,18 +465,22 @@ audio, canvas, video {
 }
 .product-in-mobile .play-video {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding: 1px 2px 0 3px;
+  bottom: 0;
+  left: 0;
+  padding: 2px 3px 0 3px;
   background: #545353;
   cursor: pointer;
+  z-index: 1001;
 }
-.play-video i {
+.play-video i.moon-play-2 {
   color: #F0F0F0;
   font-size: 20px;
   vertical-align: bottom;
-  /*padding: 0px 4px 0px 3px;*/
+  display: block;
 }
+.play-video i.moon-play-2,
+.play-video i.moon-play-2::before,
+.play-video i.moon-play-2::after { cursor: pointer; }
 .product-in-mobile .owl-buttons > div {
   height: 60px;
   width: 40px;
@@ -671,7 +675,7 @@ p#coupon-code {
 .spriteCH { background-position: -400px -399px; }
 .spriteTR { background-position: -120px -399px; }
 .spriteAE { background-position: -113px -376px; }
-.spriteGB { background-position: -73px -376px; }
+.spriteGB, .spriteUK { background-position: -73px -376px; }
 .spriteUS { background-position: -140px -348px; }
 .currency-wrap {
   float: right;
@@ -730,6 +734,7 @@ p#coupon-code {
 .lookbook-cat-list a:hover {
   color: #fff;
 }
+.starwrapper { right: 11px; }
 
 
 /*****************************************
