@@ -38,12 +38,22 @@ NEED to REMOVE after WORK DONE
 .header-type-variant5 .menu > ul > li:last-child > a {
   padding-right: 0 !important;
 }
+.header-type-variant5 .menu > ul > li.menu-item-has-children > a:after {
+  top: 29px;
+  min-width: 63px;
+  height: 55px;
+}
+.header-type-variant5 .menu > ul > li > ul { top: 73px; }
 .header-notice {
   clear: both;
   font-size: 15px;
   font-weight: bold;
   margin: 0;
   text-align: right;
+}
+.header-notice span {
+  font-weight: inherit;
+  color: #fa8072;
 }
 .header-overlapped .fullwidthbanner-container,
 .forcefullwidth_wrapper_tp_banner {
@@ -470,7 +480,7 @@ audio, canvas, video {
   padding: 2px 3px 0 3px;
   background: #545353;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 102;
 }
 .play-video i.moon-play-2 {
   color: #F0F0F0;
@@ -523,7 +533,10 @@ audio, canvas, video {
   text-align: center;
   text-transform: uppercase;
 }
-
+img.offer-banner {
+  background: none;
+  width: 100%;
+}
 span.si {
   color: white;
 }
@@ -734,7 +747,17 @@ p#coupon-code {
 .lookbook-cat-list a:hover {
   color: #fff;
 }
-.starwrapper { right: 11px; }
+.starwrapper {
+  right: 11px;
+  z-index: 101;
+}
+.shop-menu ul {
+  text-align: center;
+}
+.shop-menu li {
+  display: inline;
+  margin: 0 10px;
+}
 
 
 /*****************************************

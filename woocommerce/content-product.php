@@ -73,11 +73,24 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 				if( is_shop() || is_product_category() ){
 					
 					$video = get_post_meta( $post->ID, 'woo_video_product_tab', true );
+
+					if( empty($video) ){
+						$terms = get_the_terms( $post->ID, 'product_cat' );
+						foreach ($terms as $term) {
+					    $slug = $term->slug;
+					    if( $slug == 'lattice-collection' ){
+					    	$video = get_post_meta( 322, 'woo_video_product_tab', true );
+					    }
+						}
+					}
+
 					if( !empty($video) ){
 						echo '<div id="video-'. $post->ID .'" class="hide">'. $video[0]['video'] .'</div>';
 					}
 					
-					echo '<div class="owl-carousel product-in-mobile">'. get_the_post_thumbnail( $post->ID, 'product-list' );
+					echo '<div class="owl-carousel product-in-mobile">';
+
+					echo '<a href="'. get_permalink() .'">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</a>';
 
 					if( !empty($video) ){
 						echo '<a href="#video-'. $post->ID .'" rel="lightbox" class="play-video"><i class="moon-play-2"></i></a>';

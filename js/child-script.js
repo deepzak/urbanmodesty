@@ -137,6 +137,16 @@ $("#pfbc-element-1-7").change(function() {
   $('#pfbc-element-9').closest('.control-group').toggle(500);
 });
 
+
+// AutoPLAY video when open
+$('.play-video').click(function(){
+  setTimeout(function(){
+    $('#pp_full_res video').attr('autoplay', 'autoplay');
+  }, 1000);
+});
+
+
+
 }); // document.ready
 
 })(jQuery);
