@@ -24,7 +24,7 @@ get_header('shop'); ?>
         }
       ?>  <a class="back-to" href="javascript: history.go(-1)"><span>&lsaquo;</span> <?php _e('Return to Previous Page', ETHEME_DOMAIN); ?></a>    
      <!-- <p class="offer-banner">FREE SURPRISE GIFT SKIRT WITH $99 PURCHASE or DRESS WITH $199 PURCHASE</p> -->
-     <img class="offer-banner" src="<?php echo get_stylesheet_directory_uri() ?>/images/Eid-banner.jpg">
+     <!-- <img class="offer-banner" src="<?php echo get_stylesheet_directory_uri() ?>/images/Eid-banner.jpg"> -->
     </div>
   </div>
 </div>

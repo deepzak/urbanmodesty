@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
       <!-- <p class="offer-banner">FREE SURPRISE GIFT SKIRT WITH $99 PURCHASE or DRESS WITH $199 PURCHASE</p> -->
 
-      <img class="offer-banner" src="<?php echo get_stylesheet_directory_uri() ?>/images/Eid-banner.jpg">
+      <!-- <img class="offer-banner" src="<?php echo get_stylesheet_directory_uri() ?>/images/Eid-banner.jpg"> -->
 
       <!-- <p id="coupon-code"><?php
       /*

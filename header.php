@@ -186,7 +186,7 @@
         <?php if($header_type == 'variant2' || $header_type == 'variant5' || $header_type == 'variant6'): ?>
           <div id="main-nav">
             <?php etheme_header_wp_navigation(); ?>
-            <p class="header-notice">EID SALE: <span>20% off $249</span> code Eid20 <span>10% off $149</span> code Eid10 <span>5% off $99</span> code Eid5 Ends 9/17</p>
+            <p class="header-notice">FREE SURPRISE SKIRT with $99 purchase or DRESS with $199 purchase</p>
           </div>
         <?php endif; ?>
       </header>
