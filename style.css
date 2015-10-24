@@ -66,7 +66,9 @@ NEED to REMOVE after WORK DONE
 }
 select {
   -moz-appearance: none;
+  background: url("../idstore/images/select_arrow.png") no-repeat scroll 95% center;
 }
+select:hover { background-image: url("../idstore/images/select_arrow_hover.png"); }
 .fixed-header-area .menu > ul > li > a {
   padding: 20px 7px;
 }
@@ -253,6 +255,7 @@ p.umnotice, a.umnotice {
 .single_checkout_button.button.big.alt {
   clear: both;
   float: right;
+  font-size: 16px;
 }
 .product_description_banner {
   width: 270px;
@@ -645,6 +648,18 @@ p#coupon-code {
 .summary a.umnotice {
   font-size: 16px;
 }
+.variations_form .variations_button .button { max-width: 160px; }
+
+/* WC Wishlists */
+#wl-wrapper.wl-button-wrap {
+  padding: 10px 0 15px;
+  text-align: right;
+}
+#wl-wrapper .wl-add-but {
+  background: #808080;
+  float: none;
+  padding: 6px 15px;
+}
 
 /* Localization */
 .countries.unstyled {
@@ -718,6 +733,8 @@ p#coupon-code {
   border: none;
   text-align: right;
 }
+
+
 /** Lookbook */
 .page-template-lookbook h1.page-title {
   border: 0 none;
@@ -867,8 +884,9 @@ p#coupon-code {
   .product_description_mainblock { margin-top: 25px; }
   .single_checkout_button.button.big.alt {
     float: right !important;
-    margin-right: 21px;
+    /*margin-right: 21px;*/
   }
+  .archive .single_checkout_button.button.big.alt { margin-right: 21px; }
   .product_description_banner {
     float: none;
     margin: auto;

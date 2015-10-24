@@ -146,6 +146,11 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+							
+							// Remove Wishlist from shop page
+							if( isset( $GLOBALS['wishlists'] ) )
+							remove_action( 'woocommerce_single_product_summary', array( $GLOBALS['wishlists'], 'bind_wishlist_button' ), 0 );
+
 							do_action( 'woocommerce_single_product_summary' );
 						// }
 					} else {
