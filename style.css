@@ -43,13 +43,18 @@ NEED to REMOVE after WORK DONE
   min-width: 63px;
   height: 55px;
 }
-.header-type-variant5 .menu > ul > li > ul { top: 73px; }
+.header-type-variant5 .menu > ul > li > ul { top: 66px; }
 .header-notice {
   clear: both;
   font-size: 15px;
   font-weight: bold;
   margin: 0;
   text-align: right;
+}
+.header-notice.top {
+  padding-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
 }
 .header-notice span {
   font-weight: inherit;
