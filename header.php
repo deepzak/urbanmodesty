@@ -73,7 +73,7 @@
     <?php endif; ?>
     
     <p class="above-header-notice"><span>FREE 2-DAY PRIORITY MAIL US SHIPPING</span> over $49 &amp; DISCOUNTED GLOBAL SHIPPING<br>EZ RETURNS &amp; GENEROUS 60 DAY EXCHANGES</p>
-    <p class="header-notice top"><span>30% OFF $499</span> code hot30 <span>20% OFF $299</span> code hot20 <span>10% OFF $149</span> code hot10 <span>5% OFF $99</span> code hot5 - ENDS Oct. 31st</p>
+    <!-- <p class="header-notice top"></p> -->
 
 	<?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
 		<div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">

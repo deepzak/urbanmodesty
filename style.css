@@ -730,8 +730,10 @@ p#coupon-code {
   padding-bottom: 15px;
 }
 #shipping_method_0 {
-  border: none;
+  border: medium none;
+  padding-right: 10px;
   text-align: right;
+  text-indent: -20px;
 }
 
 
