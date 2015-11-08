@@ -970,6 +970,9 @@ p#coupon-code {
   .footer-menu-wrap {
     display: none;
   }
+  #shipping_method_0 {
+    max-width: 190px;
+  }
 } /* (max-width: 480px) */
 
 /*****************************************

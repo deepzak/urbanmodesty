@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
       <!-- <img class="offer-banner" src="<?php echo get_stylesheet_directory_uri() ?>/images/Eid-banner.jpg"> -->
 
-      <!-- <p id="coupon-code"><?php
-      /*
+      <p id="coupon-code"><?php
+      
       $cp_cookie = get_option('um_coupon_name');
       if( isset($_COOKIE['wc_' . $cp_cookie]) && isset($_COOKIE['snp_snppopup-welcome']) ):
         ?>10% OFF 1 time offer valid for <span class="clock"></span> minutes. Use code <strong style="color: #fa8072;"><?php echo $cp_cookie; ?></strong><?php
       endif;
-*/
-      ?></p> -->
+
+      ?></p>
     </div>
   </div>
 </div>

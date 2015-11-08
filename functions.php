@@ -71,8 +71,8 @@ function urban_theme_scripts(){
   // wp_enqueue_script('hoverIntent', get_template_directory_uri().'/js/hoverIntent.js',array(),false,true);
   
   // FlipClock script
-  // wp_enqueue_style( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.css' );
-  // wp_enqueue_script( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.js', array('jquery') );
+  wp_enqueue_style( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.css' );
+  wp_enqueue_script( 'flipclock', get_stylesheet_directory_uri() . '/flipclock/flipclock.js', array('jquery') );
 
   // wp_enqueue_style( 'owl-carousel', get_stylesheet_directory_uri() . '/owl-carousel/owl.carousel.css' );
   // wp_enqueue_style( 'owl-theme', get_stylesheet_directory_uri() . '/owl-carousel/owl.theme.css' );
@@ -256,7 +256,7 @@ Dynamic coupon generate with timer
 
 /**
 Generate or destroy a coupon
-
+*/
 
 // Only for new user
 if( !is_user_logged_in() ){
@@ -264,7 +264,7 @@ if( !is_user_logged_in() ){
 
 /**
 Enqueue FlipClock Scripts
-
+*/
 add_action( 'wp_enqueue_scripts', 'um_flipclock_scripts' );
 function um_flipclock_scripts(){
   if( !is_user_logged_in() ){
@@ -275,7 +275,7 @@ function um_flipclock_scripts(){
 
 /**
 After form submit
-
+*/
 if( $_GET['mailchimp'] == 'complete' ){
 
   $coupon_code = date("Ymdgi"); // Code
@@ -306,7 +306,7 @@ if( $_GET['mailchimp'] == 'complete' ){
 
   /**
   update counter time
-
+  */
   update_option( 'um_coupon_counter', $update_time );
 
   // Set cookies to calculate 30 minutes timeout
@@ -320,7 +320,7 @@ if( $_GET['mailchimp'] == 'complete' ){
 
 /**
 NewUser Cookes Script
-
+*/
 add_action( 'wp_footer', 'um_set_newuser_cookies' );
 function um_set_newuser_cookies(){
   ?><script type="text/javascript">
@@ -369,7 +369,7 @@ function um_set_newuser_cookies(){
 
   /**
   Include Script to display counter
-
+  */
   add_action('wp_footer', 'um_counter_script', 20);
   function um_counter_script(){
     ?><script type="text/javascript">
@@ -399,12 +399,12 @@ function um_set_newuser_cookies(){
 
 /**
 Add Coupon code in shortcode
-
+*/
 add_shortcode( 'um_coupon', 'um_coupon_code_output' );
 function um_coupon_code_output(){
   return get_option('um_coupon_name');
 }
-*/
+
 
 
 
