@@ -782,6 +782,9 @@ p#coupon-code {
   display: inline;
   margin: 0 10px;
 }
+del .amount {
+  text-decoration: line-through;
+}
 
 
 /*****************************************
@@ -971,7 +974,11 @@ p#coupon-code {
     display: none;
   }
   #shipping_method_0 {
-    max-width: 190px;
+    max-width: 180px;
+    text-indent: 0;
+  }
+  .checkout-default .tab-content.tab-shipping #order_comments_field textarea {
+    width: 280px !important;
   }
 } /* (max-width: 480px) */
 
