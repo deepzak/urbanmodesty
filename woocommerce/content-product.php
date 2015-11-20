@@ -135,7 +135,13 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 					<div class="clear"></div>
 				</div>
 			<?php endif; ?>
-			<div class="product-descr"><?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?></div>
+			<div class="product-descr"><?php
+			if( !is_shop() ){
+				if( isset( $post->post_excerpt ) ){
+					echo apply_filters( ' woocommerce_short_description', $post->post_excerpt );
+				}
+			}
+			?></div>
 			<div class="addtocont">
 				<?php if($product_page_price): ?>
 					<?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
