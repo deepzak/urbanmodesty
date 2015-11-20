@@ -291,6 +291,7 @@ if( $_GET['mailchimp'] == 'complete' ){
     'post_type' => 'shop_coupon'
   );
   $new_coupon_id = wp_insert_post( $coupon );
+  $new_coupon_date = date( 'Y-m-d', strtotime("+1 day", strtotime(date('Y-m-d'))) );
   // Add meta
   update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
   update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
@@ -298,7 +299,7 @@ if( $_GET['mailchimp'] == 'complete' ){
   update_post_meta( $new_coupon_id, 'product_ids', '' );
   update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
   update_post_meta( $new_coupon_id, 'usage_limit', 1 );
-  update_post_meta( $new_coupon_id, 'expiry_date', date('Y-m-d') );
+  update_post_meta( $new_coupon_id, 'expiry_date', $new_coupon_date );
   update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
   update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
   
