@@ -28,28 +28,28 @@ get_header(); ?>
       <ul class="countries unstyled">
         <li>
           <i class="flag spriteCA"></i>
-          <a href="?currency=CAD" data-country="CA">
+          <a href="javascript: backtoURL('CAD');" data-country="CA">
             Canada (C$)
           </a>
         </li>
 
         <li>
           <i class="flag spriteNL"></i>
-          <a href="?currency=EUR" data-country="NL">
+          <a href="javascript: backtoURL('EUR');" data-country="NL">
             Netherlands (€)
           </a>
         </li>
 
         <li>
           <i class="flag spriteGB"></i>
-          <a href="?currency=GBP" data-country="GB">
+          <a href="javascript: backtoURL('GBP');" data-country="GB">
             United Kingdom (£)
           </a>
         </li>
 
         <li>
           <i class="flag spriteUS"></i>
-          <a href="?currency=USD" data-country="US">
+          <a href="javascript: backtoURL('USD');" data-country="US">
             United States ($)
           </a>
         </li>
@@ -65,4 +65,9 @@ get_header(); ?>
     <div class="clear"></div>
   </div>
 </div><!-- .container -->
+<script>
+  function backtoURL(url){
+    window.location = document.referrer + '?currency=' + url;
+  }
+</script>
 <?php get_footer(); ?>

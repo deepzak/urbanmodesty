@@ -85,9 +85,9 @@
              <?php get_search_form(); ?>
            </div>
           <?php endif; ?>
-
-          <!-- Currency Switcher 
-          <p class="currency-wrap"><a href="/localization" id="currency" title="click to change your currency"><?php/*
+          <div class="checkout-top-btn"><a href="<?php global $woocommerce; echo $woocommerce->cart->get_checkout_url(); ?>"><i class="moon-cart-2" style=""></i></a></div>
+          <!-- Currency Switcher -->
+          <p class="currency-wrap"><a href="/localization" id="currency" title="click to change your currency"><?php
               global $WOOCS;
               $currency = $WOOCS->current_currency;
               
@@ -112,7 +112,7 @@
                   $value = array('&#36;', 'US');
                 break;
               }
-              echo $value[0] . ' <i id="flag" class="flag sprite' . $value[1] . '"></i>'; */
+              echo $value[0] . ' <i id="flag" class="flag sprite' . $value[1] . '"></i>';
               ?></a></p>
           <!-- END Currency Switcher -->
 
