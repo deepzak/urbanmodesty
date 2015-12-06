@@ -64,7 +64,7 @@ function urban_theme_scripts(){
 
   wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.1' );
 
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
@@ -151,6 +151,16 @@ add_filter( 'woocommerce_short_description', 'um_sold_out_notice' );
 function um_sold_out_notice( $content ){
   global $post, $product;
 
+
+  // Return for Youth category
+  $cats = get_the_terms( $post->ID, 'product_cat' );
+  foreach ($cats as $cat) {
+    if( $cat->slug == 'youth' ){
+      return $content . '<p class="umnotice">Very Limited Quantities remain.<br>We never restock (with minor exceptions).</p>';
+    }
+  }
+
+  // Return for others
   $umallvar = $product->get_available_variations();
   $umcurrent = array();
 
@@ -227,13 +237,13 @@ function browser_body_class($classes) {
 
 
 
-/**
+/*
 Clearing the Cache
-*/
+
 if( isset($_GET['responsive']) || isset( $_GET['currency'] ) ){
   wp_cache_clear_cache();
 }
-
+*/
 
 
 
@@ -297,7 +307,7 @@ if( $_GET['mailchimp'] == 'complete' ){
   update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
   update_post_meta( $new_coupon_id, 'individual_use', 'yes' );
   update_post_meta( $new_coupon_id, 'product_ids', '' );
-  update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
+  update_post_meta( $new_coupon_id, 'exclude_product_ids', '17032' );
   update_post_meta( $new_coupon_id, 'usage_limit', 1 );
   update_post_meta( $new_coupon_id, 'expiry_date', $new_coupon_date );
   update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
@@ -313,7 +323,7 @@ if( $_GET['mailchimp'] == 'complete' ){
   // Set cookies to calculate 30 minutes timeout
 
   // Clearing the Cache when coupon created
-  wp_cache_clear_cache();
+  //wp_cache_clear_cache();
 
 } // END after form submit
 
@@ -435,9 +445,9 @@ function um_sale_notice( $content ){
 
 
 
-/**
+/*
 Facebook Pixel Code
-*/
+
 function um_facebook_pixel_code(){
 
 echo "\n\n";
@@ -571,4 +581,79 @@ if ( is_admin() ) {
     remove_meta_box( 'mymetabox_revslider_0', 'acf', 'normal' );
   }
   add_action( 'do_meta_boxes', 'remove_revolution_slider_meta_boxes' );
+}
+
+
+
+/*
+Remove version parameter for scripts and styles
+
+function t5_remove_version( $url ){
+  return remove_query_arg( 'ver', $url );
+}
+add_filter( 'style_loader_src', 't5_remove_version' );
+add_filter( 'script_loader_src', 't5_remove_version' );
+*/
+
+
+
+/**
+FB Pixel Tracking Code for 'Thank you' page
+*/
+add_action( 'woocommerce_thankyou', 'fb_pixeltracking_thankyou' );
+
+function fb_pixeltracking_thankyou( $order_id ) {
+  $order = new WC_Order( $order_id );
+  $order_total = $order->get_total();
+  $order_currency = $order->get_order_currency();
+
+ ?><!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '885725638151617');
+  fbq('track', 'Purchase', {value: '<?php echo $order_total; ?>', currency: '<?php echo $order_currency; ?>'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=885725638151617&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code --><?php
+
+}
+
+
+
+
+/**
+FB Pixel Tracking Code for 'Cart' page
+*/
+add_action( 'wp_head', 'fb_pixeltracking_cart' );
+
+function fb_pixeltracking_cart() {
+  if ( is_cart() ) {
+
+  echo "\n\n";
+
+  echo "<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '885725638151617');
+  fbq('track', 'AddToCart');
+</script>";
+
+  echo '<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=885725638151617&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->';
+
+  echo "\n\n";
+
+  }
 }
