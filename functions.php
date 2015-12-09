@@ -64,7 +64,7 @@ function urban_theme_scripts(){
 
   wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.1' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
 
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
@@ -84,7 +84,8 @@ function urban_theme_scripts(){
 
 
 // Add small image size for product 
-add_image_size( 'product-list', 220, 426, true );
+add_image_size( 'medium', 220, 426, true );
+add_image_size( 'large', 320, 600, true );
 
 
 

@@ -786,7 +786,11 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
   cursor: pointer !important;
 }
 .cart-popup-container { padding-top: 0; }
-
+.gallery .gallery-item {
+  margin: 0 0.7% 1.4%;
+  overflow: hidden;
+  width: 31%;
+}
 
 
 /*****************************************
@@ -831,6 +835,7 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
     display: block;
     height: 45px;
   }
+  .gallery .gallery-item { height: 283px; }
 } /* (min-width: 481px) */
 
 
