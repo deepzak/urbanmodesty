@@ -58,19 +58,10 @@ Include child theme scripts
 */
 add_action( 'wp_enqueue_scripts', 'urban_theme_scripts', 11 );
 function urban_theme_scripts(){
-  wp_dequeue_style( 'cbpQTRotator' );
-  wp_dequeue_script( 'flexslider' );
-  // wp_dequeue_script( 'et_masonry' );
-
-  wp_dequeue_style( 'woocommerce-currency-switcher' );
-  wp_dequeue_script( 'wc-price-slider' );
-  wp_dequeue_script( 'woocommerce-currency-switcher' );
-
   wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
 
-  
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
   // wp_enqueue_script('hoverIntent', get_template_directory_uri().'/js/hoverIntent.js',array(),false,true);
@@ -83,8 +74,29 @@ function urban_theme_scripts(){
   // wp_enqueue_style( 'owl-theme', get_stylesheet_directory_uri() . '/owl-carousel/owl.theme.css' );
   // wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/owl-carousel/owl.carousel.js', array('jquery') );
   
-  wp_enqueue_script( 'child-script', get_stylesheet_directory_uri() . '/js/child-script.js', array('jquery') );
+  wp_deregister_script( 'etheme' );
+  wp_enqueue_script( 'etheme', get_stylesheet_directory_uri() . '/js/script.js', array('wc-add-to-cart-variation', 'jquery-cookie') );
+  wp_enqueue_script( 'child-script', get_stylesheet_directory_uri() . '/js/child-script.js', array('etheme') );
 }
+
+
+
+
+function wpdocs_dequeue_script() {
+  wp_dequeue_style( 'cbpQTRotator' );
+  // wp_dequeue_script( 'cbpQTRotator' );
+
+  wp_dequeue_script( 'flexslider' );
+  wp_dequeue_script( 'et_masonry' );
+  wp_dequeue_script( 'jquery.nicescroll' );
+  wp_dequeue_script( 'cookie' );
+  wp_dequeue_script( 'jquery.inview' );
+
+  wp_dequeue_style( 'woocommerce-currency-switcher' );
+  wp_dequeue_script( 'wc-price-slider' );
+  wp_dequeue_script( 'woocommerce-currency-switcher' );
+}
+add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );
 
 
 
