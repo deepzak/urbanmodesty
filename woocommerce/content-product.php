@@ -90,7 +90,7 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 					
 					echo '<div class="owl-carousel product-in-mobile">';
 
-					echo '<a href="'. get_permalink() .'">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</a>';
+					echo '<a href="'. get_permalink() .'">'. get_the_post_thumbnail( $post->ID, 'medium' ) .'</a>';
 
 					if( !empty($video) ){
 						echo '<a href="#video-'. $post->ID .'" rel="lightbox" class="play-video"><i class="moon-play-2"></i></a>';
@@ -101,11 +101,11 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 
 					// echo '<div class="owl-carousel product-in-mobile">';
 
-					// echo '<div class="item">'. get_the_post_thumbnail( $post->ID, 'product-list' ) .'</div>';
+					// echo '<div class="item">'. get_the_post_thumbnail( $post->ID, 'medium' ) .'</div>';
 
 					// $attachment_ids = $product->get_gallery_attachment_ids();
 					// foreach ($attachment_ids as $attachment_id) {
-					// 	echo '<div class="item"><img class="lazyOwl" data-src="'. wp_get_attachment_image_src( $attachment_id, 'product-list' )[0] .'" /></div>';
+					// 	echo '<div class="item"><img class="lazyOwl" data-src="'. wp_get_attachment_image_src( $attachment_id, 'medium' )[0] .'" /></div>';
 					// }
 
 					// echo '</div>';

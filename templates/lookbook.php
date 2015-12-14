@@ -59,7 +59,7 @@ get_header();
 								<h4><?php echo get_the_title() . ' (' . $choices[ $v ] . ')'; ?></h4>
 							</div>
 							<div class="span3">
-								<a href="<?php echo wp_get_attachment_image_src( get_field( 'umlb_'. $v .'_image' ), 'full' )[0]; ?>" rel="lightbox"><?php echo wp_get_attachment_image( get_field( 'umlb_'. $v .'_image' ), 'product-list' ); ?></a>
+								<a href="<?php echo wp_get_attachment_image_src( get_field( 'umlb_'. $v .'_image' ), 'full' )[0]; ?>" rel="lightbox"><?php echo wp_get_attachment_image( get_field( 'umlb_'. $v .'_image' ), 'medium' ); ?></a>
 							</div>
 							<div class="span9">
 								<video class="video" preload="none"  loop="loop">
@@ -81,7 +81,7 @@ get_header();
 								</video>
 							</div>
 							<div class="span3">
-								<a href="<?php echo wp_get_attachment_image_src( get_field( 'umlb_'. $v .'_image' ), 'full' )[0]; ?>" rel="lightbox"><?php echo wp_get_attachment_image( get_field( 'umlb_'. $v .'_image' ), 'product-list' ); ?></a>
+								<a href="<?php echo wp_get_attachment_image_src( get_field( 'umlb_'. $v .'_image' ), 'full' )[0]; ?>" rel="lightbox"><?php echo wp_get_attachment_image( get_field( 'umlb_'. $v .'_image' ), 'medium' ); ?></a>
 							</div>
 						</div>
 						<?php endif;
