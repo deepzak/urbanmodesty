@@ -146,6 +146,8 @@ $('.play-video').click(function(){
 });
 
 
+$(".gallery a").prettyPhoto();
+
 
 }); // document.ready
 
