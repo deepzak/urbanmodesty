@@ -62,10 +62,15 @@ function urban_theme_scripts(){
   wp_dequeue_script( 'flexslider' );
   // wp_dequeue_script( 'et_masonry' );
 
+  wp_dequeue_style( 'woocommerce-currency-switcher' );
+  wp_dequeue_script( 'wc-price-slider' );
+  wp_dequeue_script( 'woocommerce-currency-switcher' );
+
   wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
 
+  
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
   // wp_enqueue_script('hoverIntent', get_template_directory_uri().'/js/hoverIntent.js',array(),false,true);
@@ -662,4 +667,14 @@ function fb_pixeltracking_cart() {
   echo "\n\n";
 
   }
+}
+
+
+
+/**
+Fix WP Super Cache CSS
+*/
+add_action( 'admin_head', 'um_super_cache_css_fix' );
+function um_super_cache_css_fix(){
+  echo "\n". '<style> .settings_page_wpsupercache #nav h2::after { clear: both; content: "."; display: block; height: 0; visibility: hidden; } </style>'. "\n";
 }
