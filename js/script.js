@@ -700,7 +700,7 @@ function productLoaded(data,blockId) {
   
   /* Testimonials Gallery */
   
-  jQuery('.testimonials-slider').cbpQTRotator();
+  // jQuery('.testimonials-slider').cbpQTRotator();
   
   /* Loader */			
   

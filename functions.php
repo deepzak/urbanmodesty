@@ -58,6 +58,10 @@ Include child theme scripts
 */
 add_action( 'wp_enqueue_scripts', 'urban_theme_scripts', 11 );
 function urban_theme_scripts(){
+  wp_dequeue_style( 'cbpQTRotator' );
+  // wp_dequeue_style( 'font-awesome' );
+  wp_dequeue_style( 'woocommerce-currency-switcher' );
+
   wp_dequeue_style( 'style' );
 	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
@@ -83,11 +87,9 @@ function urban_theme_scripts(){
 
 
 function wpdocs_dequeue_script() {
-  wp_dequeue_style( 'cbpQTRotator' );
-  // wp_dequeue_script( 'cbpQTRotator' );
-
   wp_dequeue_script( 'flexslider' );
   wp_dequeue_script( 'et_masonry' );
+  wp_dequeue_script( 'cbpQTRotator' );
   wp_dequeue_script( 'jquery.nicescroll' );
   wp_dequeue_script( 'cookie' );
   wp_dequeue_script( 'jquery.inview' );
@@ -96,7 +98,7 @@ function wpdocs_dequeue_script() {
   wp_dequeue_script( 'wc-price-slider' );
   wp_dequeue_script( 'woocommerce-currency-switcher' );
 }
-add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );
+add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 9999 );
 
 
 
