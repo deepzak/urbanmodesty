@@ -33,7 +33,7 @@
 		echo ' | ' . sprintf( __( 'Page %s', ETHEME_DOMAIN ), max( $paged, $page ) );
 
 	?></title>
-	<link rel="shortcut icon" href="<?php etheme_option('favicon',true) ?>" />
+	<link rel="shortcut icon" href="//www.urbanmodesty.com/wp-content/uploads/2013/11/faviconlogo11.jpg" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <script type="text/javascript">
@@ -47,7 +47,8 @@
 		var successfullyAdded = '<?php _e('Successfully added to your shopping cart', ETHEME_DOMAIN); ?>';
     </script>
 	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
     
 <?php
 	if ( is_singular() && get_option( 'thread_comments' ) )
@@ -137,7 +138,7 @@
       <div class="fixed-header container">
         <div class="row">
           <div class="span3 logo">
-            <?php etheme_logo(); ?>
+            <a href="<?php echo home_url(); ?>"><img src="//www.urbanmodesty.com/wp-content/uploads/2013/11/umlogosite5.png" alt="<?php bloginfo( 'description' ); ?>" /></a>
           </div>
           <div id="main-nav" class="span9">
             <?php etheme_header_wp_navigation(); ?>
@@ -153,7 +154,7 @@
 	    
       <header class="row header ">
         <div class="span5 logo">
-          <?php etheme_logo(); ?>
+          <a href="<?php echo home_url(); ?>"><img src="//www.urbanmodesty.com/wp-content/uploads/2013/11/umlogosite5.png" alt="<?php bloginfo( 'description' ); ?>" /></a>
         </div>
 
         <?php if($header_type == 'default'): ?>
