@@ -50,12 +50,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <?php
       global $wp_query;
       $cat = $wp_query->get_queried_object();
-      if(!@$cat->term_id && !is_search()){
+      // if(!@$cat->term_id && !is_search()){
         $image = etheme_get_option('product_bage_banner');
-      }else{
-        $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-        $image = wp_get_attachment_url( $thumbnail_id );
-      }
+      // }else{
+      //   $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+      //   $image = wp_get_attachment_url( $thumbnail_id );
+      // }
       if($image && $image !=''){
         ?> 
           <div class="grid_slider">
