@@ -793,6 +793,33 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
 }
 
 
+/* WC Subscriptions */
+.main-info.product_meta > .price-block > span {
+  display: inline;
+}
+.single_variation_wrap .single_variation span.amount,
+.single_variation_wrap .single_variation .subscription-details {
+  float: none;
+}
+.single_variation > .price > .amount,
+.single_variation > .price > .subscription-details > .amount {
+  display: inline;
+  float: none;
+}
+#order_review .variation > * {
+  float: left;
+  margin-right: 10px;
+}
+.cart-subtotal.recurring-total > td {
+  text-align: right;
+}
+.recurring-total .amount {
+  display: inline;
+}
+
+
+
+
 /*****************************************
 *********  START - MEDIA QUERY  **********
 *****************************************/

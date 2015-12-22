@@ -29,7 +29,7 @@ function um_lookbook_cpt() {
     'show_ui'             => true,
     'show_in_nav_menus'   => false,
     'label'               => 'Lookbook',
-    'supports'            => array( 'title',  ),
+    'supports'            => array( 'title', 'custom-fields' ),
     'menu_icon'           => 'dashicons-video-alt3'
   ) );
 
@@ -688,7 +688,31 @@ function fb_pixeltracking_cart() {
 /**
 Fix WP Super Cache CSS
 */
-add_action( 'admin_head', 'um_super_cache_css_fix' );
-function um_super_cache_css_fix(){
-  echo "\n". '<style> .settings_page_wpsupercache #nav h2::after { clear: both; content: "."; display: block; height: 0; visibility: hidden; } </style>'. "\n";
+// add_action( 'admin_head', 'um_super_cache_css_fix' );
+// function um_super_cache_css_fix(){
+//   echo "\n". '<style> .settings_page_wpsupercache #nav h2::after { clear: both; content: "."; display: block; height: 0; visibility: hidden; } </style>'. "\n";
+// }
+
+
+
+// add_filter( 'woocommerce_subscriptions_product_price_string', 'um_change_subscriptions_product_price', 10, 3 );
+// function um_change_subscriptions_product_price( $subscription_string, $product, $include ){
+
+// }
+
+
+add_filter( 'woocommerce_subscriptions_product_price_string_inclusions', 'um_subscriptions_product_price_string_inclusions', 10, 2 );
+function um_subscriptions_product_price_string_inclusions( $include, $product ){
+  $include['trial_length'] = false;
+
+  return $include;
 }
+
+
+
+// add_filter( 'woocommerce_variable_subscription_price_html', 'um_variable_subscription_price_html' );
+// function um_variable_subscription_price_html(){
+//   if( is_product() ){
+//     return false;
+//   }
+// }
