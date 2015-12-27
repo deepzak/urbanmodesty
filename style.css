@@ -272,7 +272,7 @@ p.umnotice, a.umnotice {
   line-height: 50px;
 }
 .cart_totals {
-  max-width: 400px;
+  max-width: 400px !important;
 }
 .cart_totals td, .cart_totals th {
   border-bottom: 1px solid #efefef;
@@ -794,7 +794,9 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
 
 
 /* WC Subscriptions */
-.main-info.product_meta > .price-block > span {
+.main-info.product_meta > .price-block > span,
+.recurring-total .amount,
+.cart-subtotal.recurring-total .amount {
   display: inline;
 }
 .single_variation_wrap .single_variation span.amount,
@@ -813,9 +815,17 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
 .cart-subtotal.recurring-total > td {
   text-align: right;
 }
-.recurring-total .amount {
-  display: inline;
+.woocommerce #payment ul.payment_methods li .payment_method_intuit_qbms img,
+.woocommerce-page #payment ul.payment_methods li .payment_method_intuit_qbms img {
+  width: 40px;
 }
+#payment ul.payment_methods li .wc-intuit-qbms-new-payment-method-form input {
+  float: none;
+}
+#payment ul.payment_methods li:nth-child(2):not(.payment_method_paypal){
+  display: none;
+}
+
 
 
 

@@ -13,27 +13,27 @@
 <?php endif; ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php
-	/*
-	 * Print the <title> tag based on what is being viewed.
-	 */
-	global $page, $paged;
+  /*
+   * Print the <title> tag based on what is being viewed.
+   */
+  global $page, $paged;
 
-	wp_title( '|', true, 'right' );
+  wp_title( '|', true, 'right' );
 
-	// Add the blog name.
-	bloginfo( 'name' );
+  // Add the blog name.
+  bloginfo( 'name' );
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
+  // Add the blog description for the home/front page.
+  $site_description = get_bloginfo( 'description', 'display' );
+  if ( $site_description && ( is_home() || is_front_page() ) )
+    echo " | $site_description";
 
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', ETHEME_DOMAIN ), max( $paged, $page ) );
+  // Add a page number if necessary:
+  if ( $paged >= 2 || $page >= 2 )
+    echo ' | ' . sprintf( __( 'Page %s', ETHEME_DOMAIN ), max( $paged, $page ) );
 
-	?></title>
-	<link rel="shortcut icon" href="//www.urbanmodesty.com/wp-content/uploads/2013/11/faviconlogo11.jpg" />
+  ?></title>
+  <link rel="shortcut icon" href="//www.urbanmodesty.com/wp-content/uploads/2015/12/favicon.jpg" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <script type="text/javascript">
@@ -44,24 +44,24 @@
         var ajaxFilterEnabled = <?php echo (etheme_get_option('ajax_filter')) ? 1 : 0 ; ?>;
         var isRequired = ' <?php _e('Please, fill in the required fields!', ETHEME_DOMAIN); ?>';
         var someerrmsg = '<?php _e('Something went wrong', ETHEME_DOMAIN); ?>';
-		var successfullyAdded = '<?php _e('Successfully added to your shopping cart', ETHEME_DOMAIN); ?>';
+    var successfullyAdded = '<?php _e('Successfully added to your shopping cart', ETHEME_DOMAIN); ?>';
     </script>
-	<!--[if IE]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <!--[if IE]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
     
 <?php
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
+  if ( is_singular() && get_option( 'thread_comments' ) )
+    wp_enqueue_script( 'comment-reply' );
 
-	wp_head();
+  wp_head();
 ?>
 <?php $header_type = ''; $header_type = apply_filters('custom_header_filter', $header_type); ?>
 </head>
 <body <?php $fixed = ''; if(etheme_get_option('fixed_nav')) $fixed .= ' fixNav-enabled '; if($header_type == 'variant6' && is_front_page()) $fixed .= ' header-overlapped '; body_class('no-svg '.etheme_get_option('main_layout').' banner-mask-'.etheme_get_option('banner_mask').$fixed); ?>>
-	
-	<div class="wrapper">
-	
+  
+  <div class="wrapper">
+  
     <?php if(etheme_get_option('loader')): ?>
       <div id="loader">
         <div id="loader-status">
@@ -76,10 +76,10 @@
     <p class="above-header-notice"><span>FREE 2-DAY PRIORITY MAIL US SHIPPING</span> over $49 &amp; DISCOUNTED GLOBAL SHIPPING<br>EZ RETURNS &amp; GENEROUS 60 DAY EXCHANGES</p>
     <!-- <p class="header-notice top"></p> -->
 
-	<?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
-		<div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">
-			<div class="container">
-				<div class="row header-variant2">
+  <?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
+    <div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">
+      <div class="container">
+        <div class="row header-variant2">
           <div class="span12">
           <?php if(etheme_get_option('search_form')): ?>
            <div class="search_form">
@@ -128,9 +128,9 @@
       </div>
 
       </div>
-			</div>
-		</div>
-	<?php endif; ?>
+      </div>
+    </div>
+  <?php endif; ?>
 
     
    <?php if(etheme_get_option('fixed_nav')): ?> 
@@ -151,7 +151,7 @@
     
     <div class="header-bg header-type-<?php echo $header_type; ?>">
     <div class="container header-area"> 
-	    
+      
       <header class="row header ">
         <div class="span5 logo">
           <a href="<?php echo home_url(); ?>"><img src="//www.urbanmodesty.com/wp-content/uploads/2013/11/umlogosite5.png" alt="<?php bloginfo( 'description' ); ?>" /></a>
@@ -193,7 +193,7 @@
         <?php endif; ?>
       </header>
       <p class="shop-now visible-mobile"><a class="button small active" href="/shop/">Shop Now</a></p>
-	    <?php if($header_type == 'default' || $header_type == 'variant3') etheme_header_menu(); ?>
+      <?php if($header_type == 'default' || $header_type == 'variant3') etheme_header_menu(); ?>
     </div>
     <?php if($header_type == 'variant4') etheme_header_menu(); ?>
     

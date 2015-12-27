@@ -63,8 +63,8 @@ function urban_theme_scripts(){
   wp_dequeue_style( 'woocommerce-currency-switcher' );
 
   wp_dequeue_style( 'style' );
-	wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
+  wp_enqueue_style( 'parent', get_template_directory_uri() .'/style.css' );
+  wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5.3' );
 
   wp_deregister_script( 'wc-add-to-cart-variation' );
   wp_enqueue_script( 'wc-add-to-cart-variation', get_stylesheet_directory_uri() . '/js/add-to-cart-variation.min.js', array('jquery', 'woocommerce'), null, true );
@@ -710,9 +710,22 @@ function um_subscriptions_product_price_string_inclusions( $include, $product ){
 
 
 
-// add_filter( 'woocommerce_variable_subscription_price_html', 'um_variable_subscription_price_html' );
-// function um_variable_subscription_price_html(){
-//   if( is_product() ){
-//     return false;
-//   }
-// }
+// Change subscription based product price text
+function um_subs_price_string( $subscription_string, $product  ) {
+  $signup = WC_Subscriptions_Product::get_sign_up_fee($product);
+  $signup_text = woocommerce_price( $signup );
+
+  $price = woocommerce_price( WC_Subscriptions_Product::get_price( $product ) );
+
+  $period = WC_Subscriptions_Product::get_period( $product );
+
+  if( $signup ){
+    $string =  "$signup_text down payment, $price next $period and $price following $period";
+  } else {
+    $string = $price;
+  }
+
+  return $string;
+}
+add_filter( 'woocommerce_subscriptions_product_price_string', 'um_subs_price_string', 10, 2 );
+add_filter( 'woocommerce_subscription_price_string', 'um_subs_price_string', 10, 2 );
