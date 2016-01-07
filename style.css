@@ -825,6 +825,17 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
 #payment ul.payment_methods li:nth-child(2):not(.payment_method_paypal){
   display: none;
 }
+.variations_form table.variations tr select, .variations_form table tr select {
+  background: rgba(0, 0, 0, 0) url("../idstore/images/select_arrow.png") no-repeat scroll 95% center;
+  color: #666669;
+  float: right;
+  font-size: 12px;
+  height: 34px;
+  margin-bottom: 10px !important;
+  margin-right: -10px;
+  margin-left: 0 !important;
+  width: 240px;
+}
 
 
 

@@ -39,6 +39,19 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         <?php endforeach;?>
 			</tbody>
 		</table>
+		<table cellspacing="0">
+			<tbody>
+				<tr>
+        	<td class="label"><label for="um_payment-options">PAYMENT OPTIONS</label></td>
+        	<td class="value">
+						<select name="payment-options" class="" id="um_payment-options">
+							<option value="pay-in-full">Pay in full</option>
+							<option value="3-installments">3 Installments</option>
+						</select>
+        	</td>
+        </tr>
+			</tbody>
+		</table>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 

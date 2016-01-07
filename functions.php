@@ -710,7 +710,9 @@ function um_subscriptions_product_price_string_inclusions( $include, $product ){
 
 
 
-// Change subscription based product price text
+/**
+Change subscription based product price text
+*/
 function um_subs_price_string( $subscription_string, $product  ) {
   $signup = WC_Subscriptions_Product::get_sign_up_fee($product);
   $signup_text = woocommerce_price( $signup );
@@ -729,3 +731,69 @@ function um_subs_price_string( $subscription_string, $product  ) {
 }
 add_filter( 'woocommerce_subscriptions_product_price_string', 'um_subs_price_string', 10, 2 );
 add_filter( 'woocommerce_subscription_price_string', 'um_subs_price_string', 10, 2 );
+
+
+
+
+
+/**
+ * Add the field to the checkout
+ */
+add_action( 'woocommerce_after_order_notes', 'um_custom_checkout_field' );
+function um_custom_checkout_field( $checkout ) {
+
+  if( isset($_GET['um_org_pro_id'])){
+    $um_org_pro_id = $_GET['um_org_pro_id'];
+  } else {
+    $um_org_pro_id = 0;
+  }
+
+  echo '<div id="um_custom_checkout_field">';
+
+  woocommerce_form_field( 'um_org_pro_id', array(
+    'type'          => 'text',
+    'class'         => array('hidden'),
+    'label'         => __(''),
+    'placeholder'   => __(''),
+    ), $checkout->get_value( 'my_org_pro_id' ));
+
+  echo '</div>';
+
+  echo "\n".'<script type="text/javascript"> jQuery("#um_org_pro_id").val('.$um_org_pro_id.') </script>';
+
+}
+
+
+
+
+add_action( 'woocommerce_checkout_update_order_meta', 'um_custom_checkout_field_save' );
+function um_custom_checkout_field_save( $order_id ) {
+  if ( ! empty( $_POST['um_org_pro_id'] ) ) {
+    update_post_meta( $order_id, 'um_org_pro_id', sanitize_text_field( $_POST['um_org_pro_id'] ) );
+  }
+}
+
+
+
+
+// Create order automatically
+add_action('woocommerce_thankyou', 'um_add_order_after_payment');
+function um_add_order_after_payment($order_id){
+  $old_order = new WC_Order($order_id);
+  $billing_address = $old_order->get_address();
+  $shipping_address = $old_order->get_address('shipping');
+
+  $order = wc_create_order();
+  $order->add_product(
+    get_product( get_post_meta( $order_id, 'um_org_pro_id', true ) ),
+    1,
+    array(
+      'variation' => array( 'pa_sizes' => 'small' )
+    ) ); //(get_product with id and next is for quantity)
+  $order->set_address( $billing_address, 'billing' );
+  $order->set_address( $shipping_address, 'shipping' );
+  $order->update_status('processing');
+  $order->add_coupon('installment');
+  $order->reduce_order_stock();
+}
+
