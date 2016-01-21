@@ -791,6 +791,9 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
   overflow: hidden;
   width: 31%;
 }
+.checkout_cart td img {
+  max-width: 75px;
+}
 
 
 /* WC Subscriptions */
@@ -835,6 +838,11 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
   margin-right: -10px;
   margin-left: 0 !important;
   width: 240px;
+}
+#instalment-checkout-btn {
+  float: right;
+  background: #FA8072;
+  font-size: 17px;
 }
 
 

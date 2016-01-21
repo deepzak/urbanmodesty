@@ -39,6 +39,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         <?php endforeach;?>
 			</tbody>
 		</table>
+		<?php if( is_single(array(11955,11948)) ){ ?>
 		<table cellspacing="0">
 			<tbody>
 				<tr>
@@ -52,7 +53,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         </tr>
 			</tbody>
 		</table>
-
+		<p id="wc-inst-price" style="display:none">
+			<span class="amount">$75.00</span> down payment, <span class="amount">$37.50</span> next month and <span class="amount">$37.50</span> following month
+		</p>
+		<?php } ?>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 		<div class="single_variation_wrap" style="display:none;">
@@ -74,7 +78,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 * woocommerce_after_single_variation Hook
 				 */
 				do_action( 'woocommerce_after_single_variation' );
+
+			if( is_product() ){
 			?>
+			<a class="button big alt" id="instalment-checkout-btn" style="display:none">Add to Cart</a>
+			<?php } ?>
 		</div>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>

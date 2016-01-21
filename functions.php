@@ -119,9 +119,37 @@ Add Buy Now button right after add to cart button
 add_action('woocommerce_after_single_variation','urm_buy_now_cart_button');
 function urm_buy_now_cart_button(){ 
   ?><script type="text/javascript">
-    jQuery(document).ready(function($){ 
+    jQuery(document).ready(function($){
+      
+      // When "Buy Now" pressed
       $('.single_checkout_button').on('click',function(e){
         $(this).siblings('.buy-now-field').val('1');
+      });
+
+      // When instalment choosed
+      $('#um_payment-options').live('change', function(){
+        if( $(this).val() == '3-installments'){
+
+          // Hide default button
+          $('.single_add_to_cart_button').hide();
+          $('.single_checkout_button').hide();
+
+          // Show custom button
+          $('#instalment-checkout-btn').show();
+          $('#wc-inst-price').show();
+        } else {
+          $('.single_add_to_cart_button').show();
+          $('.single_checkout_button').show();
+          $('#instalment-checkout-btn').hide();
+          $('#wc-inst-price').hide();
+        }
+      });
+
+      $('#instalment-checkout-btn').click(function(){
+        var vid = $('.variations_button input[name="variation_id"]').val();
+        $.cookie( "wc_org_pro_id", vid, { expires: 1, path: '/' } );
+
+        $(this).attr('href','?add-to-cart=18386&variation_id=18388&attribute_type=149.99' );
       });
     });
   </script>
@@ -742,8 +770,8 @@ add_filter( 'woocommerce_subscription_price_string', 'um_subs_price_string', 10,
 add_action( 'woocommerce_after_order_notes', 'um_custom_checkout_field' );
 function um_custom_checkout_field( $checkout ) {
 
-  if( isset($_GET['um_org_pro_id'])){
-    $um_org_pro_id = $_GET['um_org_pro_id'];
+  if( isset($_COOKIE['wc_org_pro_id'])){
+    $um_org_pro_id = $_COOKIE['wc_org_pro_id'];
   } else {
     $um_org_pro_id = 0;
   }
@@ -780,20 +808,26 @@ function um_custom_checkout_field_save( $order_id ) {
 add_action('woocommerce_thankyou', 'um_add_order_after_payment');
 function um_add_order_after_payment($order_id){
   $old_order = new WC_Order($order_id);
-  $billing_address = $old_order->get_address();
-  $shipping_address = $old_order->get_address('shipping');
+  $items = $old_order->get_items();
 
-  $order = wc_create_order();
-  $order->add_product(
-    get_product( get_post_meta( $order_id, 'um_org_pro_id', true ) ),
-    1,
-    array(
-      'variation' => array( 'pa_sizes' => 'small' )
-    ) ); //(get_product with id and next is for quantity)
-  $order->set_address( $billing_address, 'billing' );
-  $order->set_address( $shipping_address, 'shipping' );
-  $order->update_status('processing');
-  $order->add_coupon('installment');
-  $order->reduce_order_stock();
+  foreach ( $items as $item ) {
+    if( $item['product_id'] == '18386' ){
+
+      $billing_address = $old_order->get_address();
+      $shipping_address = $old_order->get_address('shipping');
+      $pro_id = get_product( get_post_meta( $order_id, 'um_org_pro_id', true ) );
+
+      $order = wc_create_order();
+      $order->add_product( $pro_id, 1, array(
+          'variation' => array( 'pa_sizes' => 'small' )
+      ) );
+      $order->set_address( $billing_address, 'billing' );
+      $order->set_address( $shipping_address, 'shipping' );
+      $order->update_status('processing');
+      $order->add_coupon('installment');
+      $order->reduce_order_stock();
+
+    }
+  }
 }
 

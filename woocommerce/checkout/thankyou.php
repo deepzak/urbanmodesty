@@ -68,4 +68,5 @@ if ( $order ) : ?>
 
 	<p><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
 
+<script>jQuery.removeCookie('wc_org_pro_id', { path: '/' });</script>
 <?php endif; ?>
