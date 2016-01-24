@@ -831,3 +831,28 @@ function um_add_order_after_payment($order_id){
   }
 }
 
+
+
+
+
+// Exclude "Shop-CA" category in shop page
+add_action( 'pre_get_posts', 'um_exclude_shop_ca_from_shop' );
+
+function um_exclude_shop_ca_from_shop( $q ) {
+
+  if ( ! $q->is_main_query() ) return;
+  if ( ! $q->is_post_type_archive() ) return;
+  
+  if ( ! is_admin() ) {
+    if ( is_shop() || !is_product_category( array( 'shop-ca', 'shop-uk' ) ) ){
+      $q->set( 'tax_query', array(array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug',
+        'terms' => array( 'shop-ca', 'shop-uk' ),
+        'operator' => 'NOT IN'
+      )));
+    }
+  }
+
+  remove_action( 'pre_get_posts', 'um_exclude_shop_ca_from_shop' );
+}
