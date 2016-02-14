@@ -903,3 +903,13 @@ function um_adroll_tracking_code(){
 
   echo "\n\n";
 }
+
+
+
+
+function um_remove_script_version( $src ){
+  $parts = explode( '?', $src );
+  return $parts[0];
+}
+add_filter( 'script_loader_src', 'um_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'um_remove_script_version', 15, 1 );
