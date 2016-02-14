@@ -57,7 +57,7 @@ if ( $order ) : ?>
 		</ul>
 		<div class="clear"></div>
 
-		<div class="survey clearfix"><?php echo do_shortcode( '[wwm_survey id="11005"]' ); ?></div>
+		<div class="survey clearfix"><?php echo ( shortcode_exists( 'wwm_survey' ) ? do_shortcode( '[wwm_survey id="11005"]' ) : '' ) ?></div>
 
 	<?php endif; ?>
 
