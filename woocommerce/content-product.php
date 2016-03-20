@@ -93,7 +93,7 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 					echo '<a href="'. get_permalink() .'">'. get_the_post_thumbnail( $post->ID, 'medium' ) .'</a>';
 
 					if( !empty($video) ){
-						echo '<a href="#video-'. $post->ID .'" rel="lightbox" class="play-video"><i class="moon-play-2"></i></a>';
+						echo '<a href="#video-'. $post->ID .'" rel="lightbox" class="play-video"><i class="icon-play-circle"></i></a>';
 					}
 
 					echo '</div>';
@@ -116,8 +116,8 @@ if($product_page_productname == 0 && $product_page_price == 0 && $product_page_a
 					<a id="<?php echo etheme_get_image( false, 460, 628, false ) ?>" href="<?php echo the_permalink(); ?>" class="product-image <?php if($product_img_hover == 'tooltip'): ?>imageTooltip<?php endif; ?>">
 		
 						<?php woocommerce_get_template( 'loop/sale-flash.php' );  ?>
-						<?php if(etheme_get_custom_field('_etheme_hover') && $product_img_hover == 'swap'): ?><div class="img-wrapper"><img class="product_image img-hided" src="<?php echo preg_replace( '/.jpg/', '-220x426.jpg', etheme_get_custom_field('_etheme_hover') ); ?>" alt="<?php the_title(); ?>"/></div><?php endif; ?>
-						<div class="img-wrapper<?php if(etheme_get_custom_field('_etheme_hover') && $product_img_hover == 'swap') echo ' hideableHover' ?>"><img class="product_image" src="<?php echo $url; ?>" alt="<?php the_title(); ?>"/></div>
+						<?php if(etheme_get_custom_field('_etheme_hover') && $product_img_hover == 'swap'): ?><div class="img-wrapper"><img class="product_image img-hided" src="<?php echo preg_replace( '/.jpg/', '-220x426.jpg', etheme_get_custom_field('_etheme_hover') ); ?>" height="426" width="220" alt="<?php the_title(); ?>"/></div><?php endif; ?>
+						<div class="img-wrapper<?php if(etheme_get_custom_field('_etheme_hover') && $product_img_hover == 'swap') echo ' hideableHover' ?>"><img class="product_image" src="<?php echo $url; ?>" height="426" width="220" alt="<?php the_title(); ?>"/></div>
 					</a>
 				<?php
 				} 

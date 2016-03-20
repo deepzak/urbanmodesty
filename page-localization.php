@@ -28,8 +28,8 @@ get_header(); ?>
       <ul class="countries unstyled">
         <li>
           <i class="flag spriteCA"></i>
-          <a href="javascript: backtoURL('CAD');" data-country="CA">
-            Canada (C$)
+          <a href="http://ca.urbanmodesty.com/shop/" data-country="CA">
+            Shop Canada Site (C$)
           </a>
         </li>
 

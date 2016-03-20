@@ -482,23 +482,22 @@ audio, canvas, video {
   height: 40px;
 }
 .product-in-mobile .play-video {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 2px 3px 0 3px;
   background: #545353;
+  bottom: 0;
   cursor: pointer;
+  left: 0;
+  line-height: 1;
+  padding: 2px 3px;
+  position: absolute;
   z-index: 102;
 }
-.play-video i.moon-play-2 {
-  color: #F0F0F0;
-  font-size: 20px;
-  vertical-align: bottom;
-  display: block;
+.play-video i.icon-play-circle {
+  color: white;
+  font-size: 24px;
 }
-.play-video i.moon-play-2,
-.play-video i.moon-play-2::before,
-.play-video i.moon-play-2::after { cursor: pointer; }
+.play-video i.icon-play-circle,
+.play-video i.icon-play-circle::before,
+.play-video i.icon-play-circle::after { cursor: pointer; }
 .product-in-mobile .owl-buttons > div {
   height: 60px;
   width: 40px;
@@ -735,6 +734,16 @@ p#coupon-code {
   text-align: right;
   text-indent: -20px;
 }
+.shop-canada-link {
+  float: left;
+  margin-left: 30px;
+}
+.shop-canada-link > a {
+  color: #fa8072;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 
 /** Lookbook */
@@ -779,8 +788,8 @@ del .amount { text-decoration: line-through; }
 }
 .checkout-top-btn i {
   color: #fff;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 24px;
+  line-height: 1;
 }
 i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
   cursor: pointer !important;
@@ -794,6 +803,19 @@ i.moon-cart-2, i.moon-cart-2::after, i.moon-cart-2::before {
 .checkout_cart td img {
   max-width: 75px;
 }
+.slider-caption {
+  color: #3e3e3e;
+  font-size: 26px !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 1px #fff;
+}
+.tagged_as { display: none !important; }
+/*.archive form.variations_form.cart .single_variation .price {
+  display: none;
+}
+.product-information .addtocont > .price {
+  display: none;
+}*/
 
 
 /* WC Subscriptions */

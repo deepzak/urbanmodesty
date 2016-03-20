@@ -74,7 +74,7 @@
     <?php endif; ?>
     
     <p class="above-header-notice"><span>FREE 2-DAY PRIORITY MAIL US SHIPPING</span> over $49 &amp; FREE GLOBAL SHIPPING over $249<br>EZ RETURNS &amp; GENEROUS 60 DAY EXCHANGES</p>
-    <p class="header-notice top"><span>SALE:</span> <span>20% OFF</span> $199 code winter20, <span>15% OFF</span> $149 code winter15, <span>10% OFF</span> $99 code winter10</p>
+    <p class="header-notice top"><span>SALE:</span> <span>35% OFF</span> $399 code spring35, <span>20% OFF</span> $199 code spring20, <span>15% OFF</span> $149 code spring15, <span>10% OFF</span> $99 code spring10</p>
 
   <?php if((etheme_get_option('search_form') || (class_exists('Woocommerce') && !etheme_get_option('just_catalog') && etheme_get_option('cart_widget')) || etheme_get_option('top_links') || etheme_get_option('header_phone') != '')): ?>
     <div class="header-top header-top-<?php echo $header_type; ?> <?php if($header_type == "default") echo 'hidden-desktop'; ?>">

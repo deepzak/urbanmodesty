@@ -619,7 +619,18 @@ if ( !is_admin() ) {
     if(empty($first_img)){ //Defines a default image
       $first_img = "/wp-content/uploads/2014/07/Size-Chart.png";
     }
-    echo '<div class="size-chart"><a href="' . $first_img . '" rel="lightbox">Size Chart</a></div>';
+    echo '<div class="size-chart">';
+
+
+    $terms = get_the_terms( $post->ID, 'product_tag' );
+                         
+    if ( $terms && ! is_wp_error( $terms ) ){
+      foreach ( $terms as $term ) {
+        echo '<p style="color: rgb(252, 90, 90); text-transform: uppercase; font-weight: bold; margin-left: -8px;">'.$term->name.'</p>';
+      }
+    }
+
+    echo '<a href="' . $first_img . '" rel="lightbox">Size Chart</a></div>';
 
   }
 }
@@ -907,9 +918,7 @@ function um_adroll_tracking_code(){
 
 
 
-function um_remove_script_version( $src ){
-  $parts = explode( '?', $src );
-  return $parts[0];
+add_action('woocommerce_before_shop_loop', 'um_add_canada_shop_link', 99 );
+function um_add_canada_shop_link(){
+  echo '<p class="shop-canada-link"><a href="http://ca.urbanmodesty.com/shop/">Shop Canada Site <i class="flag spriteCA"></i></a></p>';
 }
-add_filter( 'script_loader_src', 'um_remove_script_version', 15, 1 );
-add_filter( 'style_loader_src', 'um_remove_script_version', 15, 1 );

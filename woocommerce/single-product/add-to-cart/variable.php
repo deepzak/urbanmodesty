@@ -54,7 +54,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			</tbody>
 		</table>
 		<p id="wc-inst-price" style="display:none">
-			<span class="amount">$75.00</span> down payment, <span class="amount">$37.50</span> next month and <span class="amount">$37.50</span> following month
+			<span class="amount">$75.00</span> down payment, <span class="amount">$37.50</span> next month and <span class="amount">$37.50</span> following mont
 		</p>
 		<?php } ?>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
